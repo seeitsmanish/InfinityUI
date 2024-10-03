@@ -6,56 +6,36 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface IButton {
+        "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "variant": 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLIButtonElement extends Components.IButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLIButtonElement: {
+        prototype: HTMLIButtonElement;
+        new (): HTMLIButtonElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "i-button": HTMLIButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface IButton {
+        "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "variant"?: 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "i-button": IButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "i-button": LocalJSX.IButton & JSXBase.HTMLAttributes<HTMLIButtonElement>;
         }
     }
 }

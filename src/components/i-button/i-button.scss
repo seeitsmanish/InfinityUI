@@ -1,0 +1,276 @@
+:host {
+  display: inline-block;
+}
+.btn {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-xl);
+  cursor: pointer;
+  transition: var(--transition-default);
+  outline: none;
+  border: none;
+  overflow: hidden;
+  position: relative;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  // Solid variant (default)
+  &.solid {
+    &.primary {
+      background-color: rgb(var(--primary));
+      color: rgb(var(--white));
+    }
+    &.secondary {
+      background-color: rgb(var(--secondary));
+      color: rgb(var(--white));
+    }
+    &.success {
+      background-color: rgb(var(--success));
+      color: rgb(var(--black));
+    }
+    &.warning {
+      background-color: rgb(var(--warning));
+      color: rgb(var(--black));
+    }
+    &.danger {
+      background-color: rgb(var(--danger));
+      color: rgb(var(--white));
+    }
+    &.default {
+      background-color: rgb(var(--default));
+      color: rgb(var(--white));
+    }
+  }
+
+  &.outline {
+    &.primary {
+      color: rgb(var(--primary));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--primary));
+    }
+    &.secondary {
+      color: rgb(var(--secondary));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--secondary));
+    }
+    &.success {
+      color: rgb(var(--success));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--success));
+    }
+    &.warning {
+      color: rgb(var(--warning));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--warning));
+    }
+    &.danger {
+      color: rgb(var(--danger));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--danger));
+    }
+    &.default {
+      color: rgb(var(--default));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--default));
+    }
+  }
+
+  &.light {
+    &.primary {
+      background-color: rgba(var(--primary), 0);
+      color: rgb(var(--primary));
+
+      &:hover {
+        background-color: rgba(var(--primary), 0.2);
+      }
+    }
+    &.secondary {
+      background-color: rgba(var(--secondary), 0);
+      color: rgb(var(--secondary));
+
+      &:hover {
+        background-color: rgba(var(--secondary), 0.2);
+      }
+    }
+    &.success {
+      background-color: rgba(var(--success), 0);
+      color: rgb(var(--success));
+
+      &:hover {
+        background-color: rgba(var(--success), 0.2);
+      }
+    }
+    &.warning {
+      background-color: rgba(var(--warning), 0);
+      color: rgb(var(--warning));
+
+      &:hover {
+        background-color: rgba(var(--warning), 0.2);
+      }
+    }
+    &.danger {
+      background-color: rgba(var(--danger), 0);
+      color: rgb(var(--danger));
+
+      &:hover {
+        background-color: rgba(var(--danger), 0.2);
+      }
+    }
+    &.default {
+      background-color: rgba(var(--default), 0);
+      color: rgb(var(--default));
+
+      &:hover {
+        background-color: rgba(var(--default), 0.2);
+      }
+    }
+  }
+
+  &.flat {
+    &.primary {
+      background-color: rgba(var(--primary), 0.2);
+      color: rgb(var(--primary));
+      &:hover {
+        background-color: rgba(var(--primary), 0.3);
+      }
+    }
+    &.secondary {
+      background-color: rgba(var(--secondary), 0.2);
+      color: rgb(var(--secondary));
+      &:hover {
+        background-color: rgba(var(--secondary), 0.3);
+      }
+    }
+    &.success {
+      background-color: rgba(var(--success), 0.2);
+      color: rgb(var(--success));
+      &:hover {
+        background-color: rgba(var(--success), 0.3);
+      }
+    }
+    &.warning {
+      background-color: rgba(var(--warning), 0.2);
+      color: rgb(var(--warning));
+      &:hover {
+        background-color: rgba(var(--warning), 0.3);
+      }
+    }
+    &.danger {
+      background-color: rgba(var(--danger), 0.2);
+      color: rgb(var(--danger));
+      &:hover {
+        background-color: rgba(var(--danger), 0.3);
+      }
+    }
+    &.default {
+      background-color: rgba(var(--default), 0.2);
+      color: rgb(var(--default));
+      &:hover {
+        background-color: rgba(var(--default), 0.3);
+      }
+    }
+  }
+
+  &.ghost {
+    &.primary {
+      color: rgb(var(--primary));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--primary));
+      &:hover {
+        color: rgb(var(--white));
+        background-color: rgba(var(--primary));
+      }
+    }
+    &.secondary {
+      color: rgb(var(--secondary));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--secondary));
+      &:hover {
+        color: rgb(var(--white));
+        background-color: rgba(var(--secondary));
+      }
+    }
+    &.success {
+      color: rgb(var(--success));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--success));
+      &:hover {
+        color: rgb(var(--black));
+        background-color: rgba(var(--success));
+      }
+    }
+    &.warning {
+      color: rgb(var(--warning));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--warning));
+      &:hover {
+        color: rgb(var(--black));
+        background-color: rgba(var(--warning));
+      }
+    }
+    &.danger {
+      color: rgb(var(--danger));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--danger));
+      &:hover {
+        color: rgb(var(--white));
+        background-color: rgba(var(--danger));
+      }
+    }
+    &.default {
+      color: rgb(var(--default));
+      background-color: transparent;
+      border: var(--border-medium) rgb(var(--default));
+      &:hover {
+        color: rgb(var(--white));
+        background-color: rgba(var(--default));
+      }
+    }
+  }
+
+  &.shadow {
+    &.primary {
+      background-color: rgb(var(--primary));
+      color: rgb(var(--white));
+      box-shadow: var(--shadow-lg) rgb(var(--primary));
+    }
+    &.secondary {
+      background-color: rgb(var(--secondary));
+      color: rgb(var(--white));
+      box-shadow: var(--shadow-lg) rgb(var(--secondary));
+    }
+    &.success {
+      background-color: rgb(var(--success));
+      color: rgb(var(--black));
+      box-shadow: var(--shadow-lg) rgb(var(--success));
+    }
+    &.warning {
+      background-color: rgb(var(--warning));
+      color: rgb(var(--black));
+      box-shadow: var(--shadow-lg) rgb(var(--warning));
+    }
+    &.danger {
+      background-color: rgb(var(--danger));
+      color: rgb(var(--white));
+      box-shadow: var(--shadow-lg) rgb(var(--danger));
+    }
+    &.default {
+      background-color: rgb(var(--default));
+      color: rgb(var(--white));
+      box-shadow: var(--shadow-lg) rgb(var(--default));
+    }
+  }
+}
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+.ripple {
+  animation: ripple 900ms linear forwards;
+}

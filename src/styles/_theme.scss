@@ -1,0 +1,50 @@
+@import './_colors.scss';
+
+// .light-theme {
+//   --background: var(--white);
+//   --foreground: var(--zinc-900);
+//   --primary: var(--blue-500);
+//   --secondary: var(--purple-500);
+//   --success: var(--green-500);
+//   --warning: var(--yellow-500);
+//   --danger: var(--red-500);
+//   --overlay: rgba(0, 0, 0, 0.3);
+//   --divider: rgba(0, 0, 0, 0.1);
+//   --content1: var(--white);
+//   --content2: var(--zinc-100);
+//   --content3: var(--zinc-200);
+//   --content4: var(--zinc-300);
+// }
+
+// .dark-theme {
+//   --background: var(--black);
+//   --foreground: var(--white);
+//   --primary: var(--blue-300);
+//   --secondary: var(--purple-300);
+//   --success: var(--green-300);
+//   --warning: var(--yellow-300);
+//   --danger: var(--red-300);
+//   --overlay: rgba(0, 0, 0, 0.7);
+//   --divider: rgba(255, 255, 255, 0.1);
+//   --content1: var(--zinc-900);
+//   --content2: var(--zinc-800);
+//   --content3: var(--zinc-700);
+//   --content4: var(--zinc-600);
+// }
+
+:root {
+  --background: var(--black);
+  --foreground: var(--white);
+  --primary: var(--blue-600);
+  --secondary: var(--purple-400);
+  --success: var(--green-500);
+  --warning: var(--yellow-500);
+  --danger: var(--red-500);
+  --default: var(--zinc-500);
+  --overlay: rgba(0, 0, 0, 0.7);
+  --divider: rgba(255, 255, 255, 0.1);
+  --content1: var(--zinc-900);
+  --content2: var(--zinc-800);
+  --content3: var(--zinc-700);
+  --content4: var(--zinc-600);
+}

@@ -1,0 +1,60 @@
+// _typography.scss
+@import './_font-sizes.scss';
+@import './_font-weights.scss';
+@import './_fonts.scss';
+
+:root {
+  /* Typography styles for specific text elements */
+
+  /* Heading styles */
+  --heading-h1-font-size: var(--font-size-xxl);
+  --heading-h1-font-weight: var(--font-weight-bold);
+  --heading-h1-font-family: var(--font-family-sans);
+  --heading-h1-line-height: 1.2; /* Example line height */
+
+  --heading-h2-font-size: var(--font-size-xl);
+  --heading-h2-font-weight: var(--font-weight-medium);
+  --heading-h2-font-family: var(--font-family-sans);
+  --heading-h2-line-height: 1.3; /* Example line height */
+
+  /* Body text styles */
+  --body-font-size: var(--font-size-md);
+  --body-font-weight: var(--font-weight-regular);
+  --body-font-family: var(--font-family-sans);
+  --body-line-height: 1.5; /* Example line height */
+
+  /* Additional text styles (optional) */
+  --caption-font-size: var(--font-size-sm);
+  --caption-font-weight: var(--font-weight-light);
+  --caption-font-family: var(--font-family-sans);
+  --caption-line-height: 1.4; /* Example line height */
+}
+
+/* Optional: Define classes for each typography style */
+.h1 {
+  font-size: var(--heading-h1-font-size);
+  font-weight: var(--heading-h1-font-weight);
+  line-height: var(--heading-h1-line-height);
+  font-family: var(--heading-h1-font-family);
+}
+
+.h2 {
+  font-size: var(--heading-h2-font-size);
+  font-weight: var(--heading-h2-font-weight);
+  line-height: var(--heading-h2-line-height);
+  font-family: var(--heading-h2-font-family);
+}
+
+.body-text {
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
+  font-family: var(--body-font-family);
+}
+
+.caption {
+  font-size: var(--caption-font-size);
+  font-weight: var(--caption-font-weight);
+  line-height: var(--caption-line-height);
+  font-family: var(--caption-font-family);
+}

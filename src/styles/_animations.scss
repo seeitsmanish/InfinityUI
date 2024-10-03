@@ -1,0 +1,7 @@
+// _animations.scss
+:root {
+  --animation-duration-short: 150ms;
+  --animation-duration-medium: 300ms;
+  --animation-duration-long: 500ms;
+  --transition-default: all 300ms ease-in-out;
+}
