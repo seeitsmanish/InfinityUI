@@ -8,6 +8,7 @@ import { Component, Prop, h } from '@stencil/core';
 export class IButton {
   @Prop() color: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'default';
   @Prop() variant: 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow' = 'solid';
+  @Prop() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
   @Prop() disabled: boolean = false;
   @Prop() disableRipple: boolean = false;
   @Prop() classes: string = '';
@@ -39,7 +40,7 @@ export class IButton {
   };
 
   render() {
-    const buttonClass = `btn ${this.color} ${this.variant} ${this.classes}`;
+    const buttonClass = `btn ${this.color} ${this.variant} ${this.classes} ${this.size}`;
 
     return (
       <button class={buttonClass} onClick={e => this.createRipples(e)} disabled={this.disabled}>
