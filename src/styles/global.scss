@@ -12,7 +12,7 @@
 @import './_font-sizes.scss';
 @import './_shadows.scss';
 @import './_typography.scss';
-
-// * {
-//   background-color: black;
-// }
+@import './sizes.scss';
+* {
+  box-sizing: border-box;
+}
