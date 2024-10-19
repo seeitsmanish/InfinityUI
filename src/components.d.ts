@@ -7,7 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface IButton {
+        "classes": string;
         "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "disableRipple": boolean;
+        "disabled": boolean;
         "variant": 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
     }
 }
@@ -24,7 +27,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface IButton {
+        "classes"?: string;
         "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "disableRipple"?: boolean;
+        "disabled"?: boolean;
         "variant"?: 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
     }
     interface IntrinsicElements {

@@ -1,5 +1,5 @@
 :host {
-  display: inline-block;
+  display: inline;
 }
 .btn {
   font-family: var(--font-family-sans);
@@ -13,11 +13,9 @@
   border: none;
   overflow: hidden;
   position: relative;
-
-  &:active {
+  focus &:active {
     transform: scale(0.95);
   }
-
   // Solid variant (default)
   &.solid {
     &.primary {

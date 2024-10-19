@@ -3,57 +3,46 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: 'i-button',
   styleUrl: 'i-button.scss',
-  shadow: true,
+  shadow: false,
 })
 export class IButton {
   @Prop() color: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'default';
   @Prop() variant: 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow' = 'solid';
+  @Prop() disabled: boolean = false;
+  @Prop() disableRipple: boolean = false;
+  @Prop() classes: string = '';
 
   createRipples = (e: MouseEvent) => {
+    if (this.disableRipple) return;
     const btn = e.currentTarget as HTMLElement;
-    const rect = btn.getBoundingClientRect();
+    const { pageX, pageY } = e;
+    const { offsetTop, offsetLeft, clientWidth, clientHeight } = btn;
     const btnTextColor = window.getComputedStyle(btn).color;
-
-    // Calculate click position relative to the button
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const diameter = Math.max(btn.clientWidth, btn.clientHeight);
-    const radius = diameter / 2;
-
+    const diameter = Math.max(clientWidth, clientHeight);
     const circle = document.createElement('span');
 
     Object.assign(circle.style, {
       width: `${diameter}px`,
       height: `${diameter}px`,
-      left: `${x - radius}px`,
-      top: `${y - radius}px`,
+      left: `${pageX - offsetLeft - diameter / 2}px`,
+      top: `${pageY - offsetTop - diameter / 2}px`,
       transform: 'scale(0)',
       backgroundColor: btnTextColor,
       opacity: '0.5',
       position: 'absolute',
       borderRadius: '50%',
-      pointerEvents: 'none',
-      transition: 'transform 0.5s, opacity 0.5s',
     });
 
-    circle.className = 'ripple';
+    circle.className = 'absolute  ripple';
     btn.appendChild(circle);
-
-    // Trigger ripple animation
-    requestAnimationFrame(() => {
-      circle.style.transform = 'scale(2)';
-      circle.style.opacity = '0';
-    });
-
-    setTimeout(() => circle.remove(), 500);
+    setTimeout(() => circle.remove(), 700);
   };
 
   render() {
-    const buttonClass = `btn ${this.color} ${this.variant}`;
+    const buttonClass = `btn ${this.color} ${this.variant} ${this.classes}`;
 
     return (
-      <button onClick={this.createRipples} class={buttonClass}>
+      <button class={buttonClass} onClick={e => this.createRipples(e)} disabled={this.disabled}>
         <slot></slot>
       </button>
     );
