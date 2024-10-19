@@ -11,7 +11,15 @@ export namespace Components {
         "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
         "disableRipple": boolean;
         "disabled": boolean;
+        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "variant": 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
+    }
+    interface ISpinner {
+        "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | string;
+        "emptyColor": string;
+        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "speed": string;
+        "thickness": string;
     }
 }
 declare global {
@@ -21,8 +29,15 @@ declare global {
         prototype: HTMLIButtonElement;
         new (): HTMLIButtonElement;
     };
+    interface HTMLISpinnerElement extends Components.ISpinner, HTMLStencilElement {
+    }
+    var HTMLISpinnerElement: {
+        prototype: HTMLISpinnerElement;
+        new (): HTMLISpinnerElement;
+    };
     interface HTMLElementTagNameMap {
         "i-button": HTMLIButtonElement;
+        "i-spinner": HTMLISpinnerElement;
     }
 }
 declare namespace LocalJSX {
@@ -31,10 +46,19 @@ declare namespace LocalJSX {
         "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
         "disableRipple"?: boolean;
         "disabled"?: boolean;
+        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "variant"?: 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
+    }
+    interface ISpinner {
+        "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | string;
+        "emptyColor"?: string;
+        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "speed"?: string;
+        "thickness"?: string;
     }
     interface IntrinsicElements {
         "i-button": IButton;
+        "i-spinner": ISpinner;
     }
 }
 export { LocalJSX as JSX };
@@ -42,6 +66,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "i-button": LocalJSX.IButton & JSXBase.HTMLAttributes<HTMLIButtonElement>;
+            "i-spinner": LocalJSX.ISpinner & JSXBase.HTMLAttributes<HTMLISpinnerElement>;
         }
     }
 }

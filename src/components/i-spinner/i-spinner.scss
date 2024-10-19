@@ -1,0 +1,58 @@
+:host {
+  display: inline-block;
+}
+.spinner-svg {
+  &.xs {
+    width: var(--size-xs);
+    height: var(--size-xs);
+  }
+  &.sm {
+    width: var(--size-sm);
+    height: var(--size-sm);
+  }
+  &.md {
+    width: var(--size-md);
+    height: var(--size-md);
+  }
+  &.lg {
+    width: var(--size-lg);
+    height: var(--size-lg);
+  }
+  &.xl {
+    width: var(--size-xl);
+    width: var(--size-xl);
+  }
+}
+.circle-spinner {
+  stroke-dasharray: 80px;
+  transform-origin: center center;
+  stroke-linecap: round;
+
+  &.primary {
+    stroke: rgb(var(--primary));
+  }
+  &.secondary {
+    stroke: rgb(var(--secondary));
+  }
+  &.success {
+    stroke: rgb(var(--success));
+  }
+  &.warning {
+    stroke: rgb(var(--warning));
+  }
+  &.danger {
+    stroke: rgb(var(--danger));
+  }
+  &.default {
+    stroke: rgb(var(--default));
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
