@@ -1,0 +1,10 @@
+.accordion-item-root {
+  display: grid;
+  grid-template-rows: 50px 0fr;
+  border-bottom: var(--border-thin) rgb(var(--divider));
+  transition: var(--animation-duration-short) ease-in-out;
+}
+
+.active-accordion-item {
+  grid-template-rows: 50px 1fr;
+}
