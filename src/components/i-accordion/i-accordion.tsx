@@ -6,14 +6,6 @@ import { Component, h } from '@stencil/core';
   shadow: false,
 })
 export class IAccordion {
-  // @Prop() selection: 'single' | 'multiple' = 'single';
-  // @Prop() defaultExpandedKeys: string[] = [];
-  // @Prop() disabledKeys: string[] | undefined;
-  // @Prop() value: Set<string> | undefined;
-  // @Prop() onChange: (key: string) => void;
-
-  // @State() expandedKeys: Set<string> = new Set(this.defaultExpandedKeys);
-
   render() {
     return (
       <div class="accordion-root">
@@ -22,3 +14,11 @@ export class IAccordion {
     );
   }
 }
+
+// @Prop() selection: 'single' | 'multiple' = 'single';
+// @Prop() defaultExpandedKeys: string[] = [];
+// @Prop() disabledKeys: string[] | undefined;
+// @Prop() value: Set<string> | undefined;
+// @Prop() onChange: (key: string) => void;
+
+// @State() expandedKeys: Set<string> = new Set(this.defaultExpandedKeys);

@@ -1,24 +1,27 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, getAssetPath, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'i-accordion-trigger',
   styleUrl: 'i-accordion-trigger.scss',
+  assetsDirs: ['assets'],
   shadow: false,
 })
 export class IAccordionTrigger {
-  @Prop({ mutable: true }) isActive: boolean;
-
+  @Event() clicked: EventEmitter;
   render() {
-    console.log(this.isActive);
+    const chevronIconPath = getAssetPath('./assets/chevron.svg');
+
     return (
       <Host
         class="accordion-trigger-root"
         onClick={() => {
-          this.isActive = !this.isActive;
+          this.clicked.emit();
         }}
       >
         <slot></slot>
-        <span>v</span>
+        <span class="accordion-trigger-chevron">
+          <img src={chevronIconPath} alt="chevron" />
+        </span>
       </Host>
     );
   }

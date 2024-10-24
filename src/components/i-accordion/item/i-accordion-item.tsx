@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State } from '@stencil/core';
+import { Component, Element, h, Listen, Prop } from '@stencil/core';
 
 export interface AccordionState {
   isActive: boolean;
@@ -11,17 +11,27 @@ export interface AccordionState {
   shadow: false,
 })
 export class IAccordionItem {
-  @State() isActive: boolean = false;
+  @Prop() key: string;
+
+  @Element() el: HTMLElement;
+
+  @Listen('clicked')
+  handleClicked() {
+    const accordioncontent = this.el.querySelector('i-accordion-content');
+    if (accordioncontent) {
+      accordioncontent.classList.toggle('i-accordion-content-root-active');
+    }
+    const accordiontriggerChevron = this.el.querySelector('.accordion-trigger-chevron');
+    if (accordiontriggerChevron) {
+      accordiontriggerChevron.classList.toggle('accordion-trigger-chevron-rotated');
+    }
+  }
+
   render() {
     return (
-      <Host
-        onClick={() => {
-          this.isActive = !this.isActive;
-        }}
-        class={`accordion-item-root ${this.isActive ? 'active-accordion-item' : ''}`}
-      >
+      <div class={'accordion-item-root'} id={this.key} data-key={this.key}>
         <slot></slot>
-      </Host>
+      </div>
     );
   }
 }

@@ -1,7 +1,14 @@
 .accordion-content-root {
-  overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: var(--animation-duration-short) ease-in-out;
 }
 
 .accordion-content-inner {
+  overflow: hidden;
+}
+
+.i-accordion-content-root-active {
+  grid-template-rows: 1fr;
   padding-bottom: var(--spacing-md);
 }

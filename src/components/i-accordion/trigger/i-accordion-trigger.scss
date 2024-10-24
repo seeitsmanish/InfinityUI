@@ -5,3 +5,9 @@
   cursor: pointer;
   padding: var(--spacing-md) 0px;
 }
+.accordion-trigger-chevron {
+  transition: transform var(--animation-duration-short) ease-in-out;
+}
+.accordion-trigger-chevron-rotated {
+  transform: rotate(180deg);
+}
