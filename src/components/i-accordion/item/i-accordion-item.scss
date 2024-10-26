@@ -1,4 +1,5 @@
 .accordion-item-root {
+  display: block;
   border-bottom: var(--border-thin) rgb(var(--divider));
   transition: var(--animation-duration-short) ease-in-out;
 }

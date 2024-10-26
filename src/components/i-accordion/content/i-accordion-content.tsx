@@ -10,9 +10,7 @@ export class IAccordionContent {
     return (
       <Host class="accordion-content-root">
         <div class="accordion-content-inner">
-          <div class="accordion-content-padded">
-            <slot></slot>
-          </div>
+          <slot></slot>
         </div>
       </Host>
     );

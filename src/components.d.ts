@@ -7,10 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface IAccordion {
+        "type": 'single' | 'multiple';
     }
     interface IAccordionContent {
     }
     interface IAccordionItem {
+        "disabled": boolean;
         "key": string;
     }
     interface IAccordionTrigger {
@@ -55,7 +57,7 @@ declare global {
         new (): HTMLIAccordionItemElement;
     };
     interface HTMLIAccordionTriggerElementEventMap {
-        "clicked": any;
+        "accordionTriggerClicked": { key: string };
     }
     interface HTMLIAccordionTriggerElement extends Components.IAccordionTrigger, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIAccordionTriggerElementEventMap>(type: K, listener: (this: HTMLIAccordionTriggerElement, ev: IAccordionTriggerCustomEvent<HTMLIAccordionTriggerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -94,14 +96,16 @@ declare global {
 }
 declare namespace LocalJSX {
     interface IAccordion {
+        "type"?: 'single' | 'multiple';
     }
     interface IAccordionContent {
     }
     interface IAccordionItem {
+        "disabled"?: boolean;
         "key"?: string;
     }
     interface IAccordionTrigger {
-        "onClicked"?: (event: IAccordionTriggerCustomEvent<any>) => void;
+        "onAccordionTriggerClicked"?: (event: IAccordionTriggerCustomEvent<{ key: string }>) => void;
     }
     interface IButton {
         "classes"?: string;

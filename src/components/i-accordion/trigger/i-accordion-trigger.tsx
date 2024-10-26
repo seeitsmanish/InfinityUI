@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, getAssetPath, h, Host } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, getAssetPath, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'i-accordion-trigger',
@@ -7,7 +7,8 @@ import { Component, Event, EventEmitter, getAssetPath, h, Host } from '@stencil/
   shadow: false,
 })
 export class IAccordionTrigger {
-  @Event() clicked: EventEmitter;
+  @Element() el: HTMLElement;
+  @Event() accordionTriggerClicked: EventEmitter<{ key: string }>;
   render() {
     const chevronIconPath = getAssetPath('./assets/chevron.svg');
 
@@ -15,7 +16,10 @@ export class IAccordionTrigger {
       <Host
         class="accordion-trigger-root"
         onClick={() => {
-          this.clicked.emit();
+          if (this.el.classList.contains('accordion-trigger-root-disabled')) return;
+          this.accordionTriggerClicked.emit({
+            key: this.el.dataset.key,
+          });
         }}
       >
         <slot></slot>

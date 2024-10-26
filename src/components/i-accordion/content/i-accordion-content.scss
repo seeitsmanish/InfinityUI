@@ -2,13 +2,15 @@
   display: grid;
   grid-template-rows: 0fr;
   transition: var(--animation-duration-short) ease-in-out;
+  opacity: 0;
 }
 
 .accordion-content-inner {
   overflow: hidden;
 }
 
-.i-accordion-content-root-active {
+.accordion-content-root-expanded {
   grid-template-rows: 1fr;
   padding-bottom: var(--spacing-md);
+  opacity: 1;
 }
