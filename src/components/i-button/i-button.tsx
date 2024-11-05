@@ -40,7 +40,7 @@ export class IButton {
   };
 
   render() {
-    const buttonClass = `btn ${this.color} ${this.variant} ${this.classes} ${this.size}`;
+    const buttonClass = `btn ${this.color} ${this.variant} ${this.size} ${this.classes}`;
 
     return (
       <button class={buttonClass} onClick={e => this.createRipples(e)} disabled={this.disabled}>

@@ -49,6 +49,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@stencil/sass": "^3.0.12"
+    "@stencil/sass": "^3.0.12",
+    "dayjs": "^1.11.13"
   }
 }

@@ -13,7 +13,7 @@ export namespace Components {
     }
     interface IAccordionItem {
         "disabled": boolean;
-        "key": string;
+        "itemId": string;
     }
     interface IAccordionTrigger {
     }
@@ -24,6 +24,11 @@ export namespace Components {
         "disabled": boolean;
         "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "variant": 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
+    }
+    interface ICalendar {
+    }
+    interface IChevron {
+        "direction": 'up' | 'down' | 'left' | 'right';
     }
     interface ISpinner {
         "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | string;
@@ -79,6 +84,18 @@ declare global {
         prototype: HTMLIButtonElement;
         new (): HTMLIButtonElement;
     };
+    interface HTMLICalendarElement extends Components.ICalendar, HTMLStencilElement {
+    }
+    var HTMLICalendarElement: {
+        prototype: HTMLICalendarElement;
+        new (): HTMLICalendarElement;
+    };
+    interface HTMLIChevronElement extends Components.IChevron, HTMLStencilElement {
+    }
+    var HTMLIChevronElement: {
+        prototype: HTMLIChevronElement;
+        new (): HTMLIChevronElement;
+    };
     interface HTMLISpinnerElement extends Components.ISpinner, HTMLStencilElement {
     }
     var HTMLISpinnerElement: {
@@ -91,6 +108,8 @@ declare global {
         "i-accordion-item": HTMLIAccordionItemElement;
         "i-accordion-trigger": HTMLIAccordionTriggerElement;
         "i-button": HTMLIButtonElement;
+        "i-calendar": HTMLICalendarElement;
+        "i-chevron": HTMLIChevronElement;
         "i-spinner": HTMLISpinnerElement;
     }
 }
@@ -102,7 +121,7 @@ declare namespace LocalJSX {
     }
     interface IAccordionItem {
         "disabled"?: boolean;
-        "key"?: string;
+        "itemId"?: string;
     }
     interface IAccordionTrigger {
         "onAccordionTriggerClicked"?: (event: IAccordionTriggerCustomEvent<{ key: string }>) => void;
@@ -114,6 +133,11 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "variant"?: 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
+    }
+    interface ICalendar {
+    }
+    interface IChevron {
+        "direction"?: 'up' | 'down' | 'left' | 'right';
     }
     interface ISpinner {
         "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | string;
@@ -128,6 +152,8 @@ declare namespace LocalJSX {
         "i-accordion-item": IAccordionItem;
         "i-accordion-trigger": IAccordionTrigger;
         "i-button": IButton;
+        "i-calendar": ICalendar;
+        "i-chevron": IChevron;
         "i-spinner": ISpinner;
     }
 }
@@ -140,6 +166,8 @@ declare module "@stencil/core" {
             "i-accordion-item": LocalJSX.IAccordionItem & JSXBase.HTMLAttributes<HTMLIAccordionItemElement>;
             "i-accordion-trigger": LocalJSX.IAccordionTrigger & JSXBase.HTMLAttributes<HTMLIAccordionTriggerElement>;
             "i-button": LocalJSX.IButton & JSXBase.HTMLAttributes<HTMLIButtonElement>;
+            "i-calendar": LocalJSX.ICalendar & JSXBase.HTMLAttributes<HTMLICalendarElement>;
+            "i-chevron": LocalJSX.IChevron & JSXBase.HTMLAttributes<HTMLIChevronElement>;
             "i-spinner": LocalJSX.ISpinner & JSXBase.HTMLAttributes<HTMLISpinnerElement>;
         }
     }

@@ -1,0 +1,55 @@
+.calendar-root {
+  background-color: rgb(var(--background));
+  color: rgb(var(--content1));
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-sm);
+  color: rgb(var(--foreground)) !important;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--spacing-lg);
+}
+
+.calendar-header-nav-button {
+  border-radius: 50%;
+  padding: var(--spacing-sm);
+}
+
+.calendar-header-info {
+  padding: 0px var(--spacing-lg);
+}
+
+.calendar-body-week-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-sm);
+  padding-bottom: var(--spacing-lg);
+}
+
+.week-day-name {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.calendar-body-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.day-button {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  padding: var(--spacing-md) !important;
+  font-size: var(--font-size-xs) !important;
+  color: rgb(var(--foreground)) !important;
+
+  &.empty-day-button {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
