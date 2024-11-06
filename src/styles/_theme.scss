@@ -1,107 +1,88 @@
 @import './_colors.scss';
 
-/* Light Theme */
-.light-theme {
-  --background: var(--white);
-  /* Light background */
+@mixin light-theme {
+  --background: var(--zinc-50);
+  /* Light gray background */
   --foreground: var(--zinc-900);
-  /* Dark text */
+  /* Dark gray text */
+
+  --default: var(--zinc-500);
+  /* Mid-tone zinc for default actions */
   --primary: var(--blue-500);
-  /* Strong blue for primary actions */
+  /* Mid-tone blue for primary actions */
   --secondary: var(--purple-500);
-  /* Strong purple for secondary actions */
+  /* Mid-tone purple for secondary actions */
   --success: var(--green-500);
-  /* Green for success messages */
+  /* Mid-tone green for success messages */
   --warning: var(--yellow-500);
-  /* Yellow for warning messages */
+  /* Mid-tone yellow for warnings */
   --danger: var(--red-500);
-  /* Red for error/danger messages */
-  --overlay: rgba(0, 0, 0, 0.3);
-  /* Subtle dark overlay */
-  --divider: rgba(0, 0, 0, 0.1);
-  /* Light divider for sections */
+  /* Mid-tone red for errors */
+
+  --overlay: var(--zinc-800);
+  /* Darker overlay color */
+  --divider: var(--zinc-200);
+  /* Light divider color */
+
   --content1: var(--zinc-900);
-  /* Darker content for emphasis */
-  --content2: var(--zinc-100);
-  /* Light content for less emphasis */
-  --content3: var(--zinc-200);
-  /* Slightly darker light content */
+  /* Strong text color */
+  --content2: var(--zinc-700);
+  /* Secondary text color */
+  --content3: var(--zinc-500);
+  /* Less prominent text */
   --content4: var(--zinc-300);
-  /* Darker light content */
+  /* Faint content color */
 }
 
-/* Dark Theme */
-.dark-theme {
-  --background: var(--black);
-  /* Dark background */
-  --foreground: var(--zinc-100);
-  /* Light text for readability */
-  --primary: var(--blue-300);
-  /* Softer blue for primary actions */
-  --secondary: var(--purple-300);
-  /* Softer purple for secondary actions */
-  --success: var(--green-300);
-  /* Softer green for success messages */
-  --warning: var(--yellow-300);
-  /* Softer yellow for warnings */
-  --danger: var(--red-300);
-  /* Softer red for danger messages */
-  --overlay: rgba(255, 255, 255, 0.7);
-  /* Light overlay for dark theme */
-  --divider: rgba(255, 255, 255, 0.1);
-  /* Light divider for sections */
-  --content1: var(--zinc-900);
-  /* Darker content for emphasis */
-  --content2: var(--zinc-800);
-  /* Darker shade for less emphasis */
-  --content3: var(--zinc-700);
-  /* Slightly lighter dark content */
+@mixin dark-theme {
+  --background: var(--zinc-900);
+  /* Almost black for background */
+  --foreground: var(--zinc-50);
+  /* Light gray for text */
+
+  --default: var(--zinc-400);
+  /* lighter zinc for default actions */
+  --primary: var(--blue-400);
+  /* Slightly lighter blue for contrast */
+  --secondary: var(--purple-400);
+  /* Lighter purple for contrast */
+  --success: var(--green-400);
+  /* Lighter green */
+  --warning: var(--yellow-400);
+  /* Lighter yellow */
+  --danger: var(--red-400);
+  /* Lighter red */
+
+  --overlay: var(--zinc-700);
+  /* Slightly lighter overlay color */
+  --divider: var(--zinc-600);
+  /* Darker divider color */
+
+  --content1: var(--zinc-50);
+  /* Strong text color */
+  --content2: var(--zinc-200);
+  /* Secondary text color */
+  --content3: var(--zinc-400);
+  /* Less prominent text */
   --content4: var(--zinc-600);
-  /* Lighter dark content */
+  /* Faint content color */
 }
-
-// :root {
-//   --background: var(--black);
-//   --foreground: var(--white);
-//   --primary: var(--blue-600);
-//   --secondary: var(--purple-400);
-//   --success: var(--green-500);
-//   --warning: var(--yellow-500);
-//   --danger: var(--red-500);
-//   --default: var(--zinc-500);
-//   --overlay: rgba(0, 0, 0, 0.7);
-//   --divider: var(--zinc-200);
-//   --content1: var(--zinc-100);
-//   --content2: var(--zinc-800);
-//   --content3: var(--zinc-700);
-//   --content4: var(--zinc-600);
-// }
 
 :root {
-  --background: var(--black);
-  /* Dark background */
-  --foreground: var(--zinc-100);
-  /* Light text for readability */
-  --primary: var(--blue-300);
-  /* Softer blue for primary actions */
-  --secondary: var(--purple-300);
-  /* Softer purple for secondary actions */
-  --success: var(--green-300);
-  /* Softer green for success messages */
-  --warning: var(--yellow-300);
-  /* Softer yellow for warnings */
-  --danger: var(--red-300);
-  /* Softer red for danger messages */
-  --overlay: rgba(255, 255, 255, 0.7);
-  /* Light overlay for dark theme */
-  --divider: rgba(255, 255, 255, 0.1);
-  /* Light divider for sections */
-  --content1: var(--zinc-900);
-  /* Darker content for emphasis */
-  --content2: var(--zinc-800);
-  /* Darker shade for less emphasis */
-  --content3: var(--zinc-700);
-  /* Slightly lighter dark content */
-  --content4: var(--zinc-600);
-  /* Lighter dark content */
+  /* Default to light theme variables */
+  @include light-theme;
+}
+
+/* Apply light theme when user preference is set to light */
+@media (prefers-color-scheme: light) {
+  :root {
+    @include light-theme;
+  }
+}
+
+/* Apply dark theme when user preference is set to dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-theme;
+  }
 }

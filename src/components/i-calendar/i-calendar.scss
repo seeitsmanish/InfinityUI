@@ -1,9 +1,12 @@
 .calendar-root {
   background-color: rgb(var(--background));
-  color: rgb(var(--content1));
-  border-radius: var(--border-radius-xl);
+  color: rgb(var(--foreground));
+
   padding: var(--spacing-sm);
-  color: rgb(var(--foreground)) !important;
+
+  border: var(--border-thin) rgb(var(--divider));
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-sm) rgb(var(--divider));
 }
 
 .calendar-header {
@@ -16,6 +19,8 @@
 .calendar-header-nav-button {
   border-radius: 50%;
   padding: var(--spacing-sm);
+  color: rgb(var(--foreground)) !important;
+  background-color: transparent !important;
 }
 
 .calendar-header-info {
@@ -42,11 +47,115 @@
 }
 
 .day-button {
+  height: 100%;
+  width: 100%;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  padding: var(--spacing-md) !important;
-  font-size: var(--font-size-xs) !important;
+  padding: var(--spacing-xs) !important;
+  font-size: var(--font-size-sm) !important;
   color: rgb(var(--foreground)) !important;
+
+  &.primary {
+    &:hover {
+      color: rgb(var(--primary)) !important;
+    }
+
+    &.today-button {
+      background-color: rgb(var(--primary)) !important;
+      color: rgb(var(--background)) !important;
+      font-weight: var(--font-weight-bold);
+
+      &:hover {
+        background-color: rgba(var(--primary), 0.9) !important;
+        color: rgb(var(--background)) !important;
+      }
+    }
+  }
+
+  &.secondary {
+    &:hover {
+      color: rgb(var(--secondary)) !important;
+    }
+
+    &.today-button {
+      background-color: rgb(var(--secondary)) !important;
+      color: rgb(var(--background)) !important;
+      font-weight: var(--font-weight-bold);
+
+      &:hover {
+        background-color: rgba(var(--secondary), 0.9) !important;
+        color: rgb(var(--background)) !important;
+      }
+    }
+  }
+
+  &.success {
+    &:hover {
+      color: rgb(var(--success)) !important;
+    }
+
+    &.today-button {
+      background-color: rgb(var(--success)) !important;
+      color: rgb(var(--background)) !important;
+      font-weight: var(--font-weight-bold);
+
+      &:hover {
+        background-color: rgba(var(--success), 0.9) !important;
+        color: rgb(var(--background)) !important;
+      }
+    }
+  }
+
+  &.warning {
+    &:hover {
+      color: rgb(var(--warning)) !important;
+    }
+
+    &.today-button {
+      background-color: rgb(var(--warning)) !important;
+      color: rgb(var(--background)) !important;
+      font-weight: var(--font-weight-bold);
+
+      &:hover {
+        background-color: rgba(var(--warning), 0.9) !important;
+        color: rgb(var(--background)) !important;
+      }
+    }
+  }
+
+  &.danger {
+    &:hover {
+      color: rgb(var(--danger)) !important;
+    }
+
+    &.today-button {
+      background-color: rgb(var(--danger)) !important;
+      color: rgb(var(--background)) !important;
+      font-weight: var(--font-weight-bold);
+
+      &:hover {
+        background-color: rgba(var(--danger), 0.9) !important;
+        color: rgb(var(--background)) !important;
+      }
+    }
+  }
+
+  &.default {
+    &:hover {
+      color: rgb(var(--default)) !important;
+    }
+
+    &.today-button {
+      background-color: rgb(var(--default)) !important;
+      color: rgb(var(--background)) !important;
+      font-weight: var(--font-weight-bold);
+
+      &:hover {
+        background-color: rgba(var(--default), 0.9) !important;
+        color: rgb(var(--background)) !important;
+      }
+    }
+  }
 
   &.empty-day-button {
     visibility: hidden;

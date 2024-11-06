@@ -1,5 +1,5 @@
-import { Component, h, Host, State } from "@stencil/core";
-import { getDaysArrayInMonth, getWeekNames } from "./utils";
+import { Component, h, Host, Prop, State } from "@stencil/core";
+import { getDaysArrayInMonth, getMonthNavigationHeader, getWeekNames, isToday } from "./utils";
 import dayjs from "dayjs";
 
 @Component({
@@ -9,26 +9,39 @@ import dayjs from "dayjs";
 })
 export class ICalendar {
 
+    @Prop() color: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'default';
 
     @State() monthInView = dayjs().month();
     @State() yearInView = dayjs().year();
+
+    handlePreviousMonth = () => {
+        /** Caution: Order of Update matters */
+        this.yearInView = this.monthInView === 0 ? this.yearInView - 1 : this.yearInView;
+        this.monthInView = this.monthInView === 0 ? 11 : this.monthInView - 1;
+    }
+
+    handleNextMonth = () => {
+        /** Caution: Order of Update matters */
+        this.yearInView = this.monthInView === 11 ? this.yearInView + 1 : this.yearInView;
+        this.monthInView = this.monthInView === 11 ? 0 : this.monthInView + 1;
+    }
 
 
     render() {
         const weekNames = getWeekNames();
         const days = getDaysArrayInMonth(this.monthInView, this.yearInView)
-        console.log(days);
+        const monthNavigationHeading = getMonthNavigationHeader(this.monthInView, this.yearInView);
         return (
             <Host class='calendar-root'>
                 {/* Calendar Header  */}
                 <div class='calendar-header'>
-                    <i-button classes='calendar-header-nav-button'>
+                    <i-button classes='calendar-header-nav-button' onClick={this.handlePreviousMonth}>
                         <i-chevron direction="left"></i-chevron>
                     </i-button>
                     <span class='calendar-header-info'>
-                        November
+                        {monthNavigationHeading}
                     </span>
-                    <i-button classes='calendar-header-nav-button'>
+                    <i-button classes='calendar-header-nav-button' onClick={this.handleNextMonth}>
                         <i-chevron direction="right"></i-chevron>
                     </i-button>
                 </div>
@@ -47,17 +60,20 @@ export class ICalendar {
                     <div class='calendar-body-days'>
                         {/* TODO: Implement logic to render calendar days */}
                         {days.map((day) => {
-                            let buttonClassName = 'day-button';
-                            if (!day) buttonClassName += ' empty-day-button'
+                            const dayClasses = [`day-button ${this.color}`];
+                            if (!day) dayClasses.push('empty-day-button');
+                            if (isToday(day, this.monthInView, this.yearInView)) dayClasses.push('today-button');
+                            const buttonClassName = dayClasses.join(' ');
                             return (
-                                <button
-                                    // variant="light"
-                                    // color='primary'
-                                    class={buttonClassName}
-                                // disableRipple
+                                <i-button
+                                    color={this.color}
+                                    variant="light"
+                                    classes={buttonClassName}
+                                    // disableRipple
+                                    disabled={!day}
                                 >
                                     {day}
-                                </button>
+                                </i-button>
                             )
                         }
                         )}

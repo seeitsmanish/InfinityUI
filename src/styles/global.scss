@@ -13,7 +13,12 @@
 @import './_shadows.scss';
 @import './_typography.scss';
 @import './sizes.scss';
+
 * {
   box-sizing: border-box;
   font-family: var(--font-family-sans);
+}
+
+body {
+  background-color: rgb(var(--black));
 }

@@ -26,6 +26,7 @@ export namespace Components {
         "variant": 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
     }
     interface ICalendar {
+        "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
     }
     interface IChevron {
         "direction": 'up' | 'down' | 'left' | 'right';
@@ -135,6 +136,7 @@ declare namespace LocalJSX {
         "variant"?: 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
     }
     interface ICalendar {
+        "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
     }
     interface IChevron {
         "direction"?: 'up' | 'down' | 'left' | 'right';
