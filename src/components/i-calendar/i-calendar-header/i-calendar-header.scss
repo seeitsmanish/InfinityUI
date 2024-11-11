@@ -1,0 +1,18 @@
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--spacing-lg);
+}
+
+.calendar-header-nav-button {
+    border-radius: 50%;
+    padding: var(--spacing-sm);
+    color: rgb(var(--foreground)) !important;
+    background-color: transparent !important;
+}
+
+.calendar-header-info {
+    padding: 0px var(--spacing-lg);
+    white-space: nowrap;
+}

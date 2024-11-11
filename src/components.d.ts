@@ -27,6 +27,23 @@ export namespace Components {
     }
     interface ICalendar {
         "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "maxDate"?: string;
+        "minDate"?: string;
+        "selected"?: string;
+    }
+    interface ICalendarHeader {
+        "calendarHeading"?: JSX.Element | HTMLElement | string;
+        "handleNext"?: () => void;
+        "handlePrev"?: () => void;
+    }
+    interface ICalendarMonthView {
+        "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "handleDateSelection"?: (date: string) => void;
+        "maxDate"?: string;
+        "minDate"?: string;
+        "monthInView": number;
+        "selected"?: string;
+        "yearInView": number;
     }
     interface IChevron {
         "direction": 'up' | 'down' | 'left' | 'right';
@@ -42,6 +59,10 @@ export namespace Components {
 export interface IAccordionTriggerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIAccordionTriggerElement;
+}
+export interface ICalendarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLICalendarElement;
 }
 declare global {
     interface HTMLIAccordionElement extends Components.IAccordion, HTMLStencilElement {
@@ -85,11 +106,34 @@ declare global {
         prototype: HTMLIButtonElement;
         new (): HTMLIButtonElement;
     };
+    interface HTMLICalendarElementEventMap {
+        "select": string;
+    }
     interface HTMLICalendarElement extends Components.ICalendar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLICalendarElementEventMap>(type: K, listener: (this: HTMLICalendarElement, ev: ICalendarCustomEvent<HTMLICalendarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLICalendarElementEventMap>(type: K, listener: (this: HTMLICalendarElement, ev: ICalendarCustomEvent<HTMLICalendarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLICalendarElement: {
         prototype: HTMLICalendarElement;
         new (): HTMLICalendarElement;
+    };
+    interface HTMLICalendarHeaderElement extends Components.ICalendarHeader, HTMLStencilElement {
+    }
+    var HTMLICalendarHeaderElement: {
+        prototype: HTMLICalendarHeaderElement;
+        new (): HTMLICalendarHeaderElement;
+    };
+    interface HTMLICalendarMonthViewElement extends Components.ICalendarMonthView, HTMLStencilElement {
+    }
+    var HTMLICalendarMonthViewElement: {
+        prototype: HTMLICalendarMonthViewElement;
+        new (): HTMLICalendarMonthViewElement;
     };
     interface HTMLIChevronElement extends Components.IChevron, HTMLStencilElement {
     }
@@ -110,6 +154,8 @@ declare global {
         "i-accordion-trigger": HTMLIAccordionTriggerElement;
         "i-button": HTMLIButtonElement;
         "i-calendar": HTMLICalendarElement;
+        "i-calendar-header": HTMLICalendarHeaderElement;
+        "i-calendar-month-view": HTMLICalendarMonthViewElement;
         "i-chevron": HTMLIChevronElement;
         "i-spinner": HTMLISpinnerElement;
     }
@@ -137,6 +183,24 @@ declare namespace LocalJSX {
     }
     interface ICalendar {
         "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "maxDate"?: string;
+        "minDate"?: string;
+        "onSelect"?: (event: ICalendarCustomEvent<string>) => void;
+        "selected"?: string;
+    }
+    interface ICalendarHeader {
+        "calendarHeading"?: JSX.Element | HTMLElement | string;
+        "handleNext"?: () => void;
+        "handlePrev"?: () => void;
+    }
+    interface ICalendarMonthView {
+        "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "handleDateSelection"?: (date: string) => void;
+        "maxDate"?: string;
+        "minDate"?: string;
+        "monthInView"?: number;
+        "selected"?: string;
+        "yearInView"?: number;
     }
     interface IChevron {
         "direction"?: 'up' | 'down' | 'left' | 'right';
@@ -155,6 +219,8 @@ declare namespace LocalJSX {
         "i-accordion-trigger": IAccordionTrigger;
         "i-button": IButton;
         "i-calendar": ICalendar;
+        "i-calendar-header": ICalendarHeader;
+        "i-calendar-month-view": ICalendarMonthView;
         "i-chevron": IChevron;
         "i-spinner": ISpinner;
     }
@@ -169,6 +235,8 @@ declare module "@stencil/core" {
             "i-accordion-trigger": LocalJSX.IAccordionTrigger & JSXBase.HTMLAttributes<HTMLIAccordionTriggerElement>;
             "i-button": LocalJSX.IButton & JSXBase.HTMLAttributes<HTMLIButtonElement>;
             "i-calendar": LocalJSX.ICalendar & JSXBase.HTMLAttributes<HTMLICalendarElement>;
+            "i-calendar-header": LocalJSX.ICalendarHeader & JSXBase.HTMLAttributes<HTMLICalendarHeaderElement>;
+            "i-calendar-month-view": LocalJSX.ICalendarMonthView & JSXBase.HTMLAttributes<HTMLICalendarMonthViewElement>;
             "i-chevron": LocalJSX.IChevron & JSXBase.HTMLAttributes<HTMLIChevronElement>;
             "i-spinner": LocalJSX.ISpinner & JSXBase.HTMLAttributes<HTMLISpinnerElement>;
         }

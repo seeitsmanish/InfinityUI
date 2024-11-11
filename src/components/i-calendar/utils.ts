@@ -60,3 +60,61 @@ export const isToday = (date: number, month: number, year: number): boolean => {
         (dayjs().get('month') === month) &&
         (dayjs().get('year') === year);
 }
+
+/**
+ * returns the formatted date as a string in the format YYYY-MM-DD
+ * @param {number} date - the date
+ * @param {number} month - the month (0 indexed)
+ * @param {number} year - the year
+ */
+export const getFormattedDate = (date: number, month: number, year: number): string => {
+    return dayjs().date(date).month(month).year(year).format('YYYY-MM-DD');
+}
+
+/**
+ *  returns true if the date is in the format YYYY-MM-DD format
+ * @param {string} date - the date string in format YYYY-MM-DD
+ * @returns {boolean} - true if the date is in the format YYYY-MM-DD, false otherwise
+ */
+export const isValidDateFormat = (date: string): boolean => {
+    if (!date) return false;
+    try {
+        if (!dayjs(date, 'YYYY-MM-DD', true).isValid()) {
+            throw new Error('Invalid date format, expected date format YYYY-MM-DD');
+        }
+    }
+    catch (error) {
+        console.error('Date format validation failed, Please use date format YYYY-MM-DD');
+        return false;
+    }
+    return true;
+}
+
+/**
+ * checks if the given date is the same as the provided day, month and year
+ * @param {string} date - the date string in format YYYY-MM-DD
+ * @param {number} day - the day
+ * @param {number} month - the month (1 indexed)
+ * @param {number} year - the year
+ * @returns {boolean} - true if the date is the same, false otherwise
+ */
+export const isDateStringSame = (date: string, day: number, month: number, year: number): boolean => {
+    if (!isValidDateFormat(date)) return false;
+    return dayjs(date).isSame(`${year}-${month}-${day}`, 'day')
+}
+
+/**
+ * returns an object containing the date, month, year
+ * @param date - the date from which year, month and day has to be extracted
+ * @returns object containing the date, month and year
+ */
+export const getDayMonthYearFromString = (date: string): { year: number, month: number, day: number } => {
+    if (!isValidDateFormat(date)) return null;
+    const dayJsDate = dayjs(date);
+    return {
+        year: dayJsDate.year(),
+        month: dayJsDate.month() + 1,
+        day: dayJsDate.date(),
+    }
+}
+
