@@ -15,6 +15,11 @@
   overflow: hidden;
   position: relative;
 
+  &:disabled {
+    opacity: 50%;
+    cursor: not-allowed;
+  }
+
 
   focus &:active {
     transform: scale(0.95);
