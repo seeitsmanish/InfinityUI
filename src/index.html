@@ -14,12 +14,41 @@
 <style>
   .wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
     height: 100dvh;
-    width: 100dvw;
+    /* width: 100dvw; */
+    gap: 20px;
+    padding: 20px;
+    /* flex-wrap: wrap; */
+    color: seashell;
+  }
+
+  .heading {
+    color: seashell;
+    margin-bottom: 20px;
+  }
+
+  .item {
+    padding: 50px;
+    border: 1px solid #f8f9fa;
+    border-radius: 10px;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
     gap: 20px;
     flex-wrap: wrap;
+  }
+
+  .sub-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 </style>
 
@@ -27,43 +56,328 @@
 
 
   <div class="wrapper">
-    <i-button color="success" size="lg"> Infinity UI is awesome</i-button>
-    <i-spinner size="lg" thickness="5" color="secondary"></i-spinner>
-    <i-calendar color="danger" onselect="onSelect(event)" max-date="2024-11-13" selected="2024-12-10">
-    </i-calendar>
-    <i-accordion style="width: 300px;">
-      <i-accordion-item>
-        <i-accordion-trigger>
-          Accordion 1
-        </i-accordion-trigger>
-        <i-accordion-content>
-          Accordion 1 content
-        </i-accordion-content>
-      </i-accordion-item>
 
-      <i-accordion-item>
-        <i-accordion-trigger>
-          Accordion 2
-        </i-accordion-trigger>
-        <i-accordion-content>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam repudiandae cupiditate, ducimus iusto
-          voluptates quas animi ipsa nam dicta iure?
-        </i-accordion-content>
-      </i-accordion-item>
+    <!-- Buttons -->
+    <!-- Color Variants -->
+    <div class="item">
+      <p class="heading">Color Variants</p>
+      <div class="content">
+        <i-button color="default">Default</i-button>
+        <i-button color="primary">Primary</i-button>
+        <i-button color="secondary">Secondary</i-button>
+        <i-button color="success">Success</i-button>
+        <i-button color="warning">Warning</i-button>
+        <i-button color="danger">Danger</i-button>
+      </div>
+    </div>
+
+    <!-- Button Variants -->
+    <div class="item">
+      <p class="heading">Button Variants</p>
+      <div class="content">
+        <i-button variant="solid" color="primary">Solid</i-button>
+        <i-button variant="outline" color="primary">Outline</i-button>
+        <i-button variant="light" color="primary">Light</i-button>
+        <i-button variant="flat" color="primary">Flat</i-button>
+        <i-button variant="ghost" color="primary">Ghost</i-button>
+        <i-button variant="shadow" color="primary">Shadow</i-button>
+      </div>
+    </div>
+
+    <!-- Size Variants -->
+    <div class="item">
+      <p class="heading">Size Variants</p>
+      <div class="content">
+        <i-button color="success" size="xs">XS</i-button>
+        <i-button color="success" size="sm">SM</i-button>
+        <i-button color="success" size="md">MD</i-button>
+        <i-button color="success" size="lg">LG</i-button>
+        <i-button color="success" size="xl">XL</i-button>
+      </div>
+    </div>
+
+    <!-- Disabled Button -->
+    <div class="item">
+      <p class="heading">Disabled Button</p>
+      <div class="content">
+        <i-button color="danger" disabled="true">Disabled</i-button>
+      </div>
+    </div>
+
+    <!-- Button without Ripple -->
+    <div class="item">
+      <p class="heading">Button without Ripple</p>
+      <div class="content">
+        <i-button color="warning" disable-ripple>No Ripple</i-button>
+      </div>
+    </div>
 
 
-      <i-accordion-item>
-        <i-accordion-trigger>
-          Accordion 3
-        </i-accordion-trigger>
-        <i-accordion-content>
-          Accordion 3 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, vel?
-        </i-accordion-content>
-      </i-accordion-item>
-      </i-accordion-item>
+    <!-- Spinners -->
 
-    </i-accordion>
+    <!-- Color Variants -->
+    <div class="item">
+      <p class="heading">Color Variants</p>
+      <div class="content">
+        <div class="sub-content">
+          <i-spinner color="default"></i-spinner>
+          <label>Default</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="primary"></i-spinner>
+          <label>Primary</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="secondary"></i-spinner>
+          <label>Secondary</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="success"></i-spinner>
+          <label>Success</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="warning"></i-spinner>
+          <label>Warning</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="danger"></i-spinner>
+          <label>Danger</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="#FF5733"></i-spinner>
+          <label>Custom (#FF5733)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Size Variants -->
+    <div class="item">
+      <p class="heading">Size Variants</p>
+      <div class="content">
+        <div class="sub-content">
+          <i-spinner color="primary" size="xs"></i-spinner>
+          <label>XS</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="primary" size="sm"></i-spinner>
+          <label>SM</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="primary" size="md"></i-spinner>
+          <label>MD</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="primary" size="lg"></i-spinner>
+          <label>LG</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="primary" size="xl"></i-spinner>
+          <label>XL</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Thickness -->
+    <div class="item">
+      <p class="heading">Custom Thickness</p>
+      <div class="content">
+        <div class="sub-content">
+          <i-spinner color="success" thickness="2px"></i-spinner>
+          <label>Thickness 2px</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="success" thickness="4px"></i-spinner>
+          <label>Thickness 4px</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="success" thickness="6px"></i-spinner>
+          <label>Thickness 6px</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Speed -->
+    <div class="item">
+      <p class="heading">Custom Speed</p>
+      <div class="content">
+        <div class="sub-content">
+          <i-spinner color="danger" speed="1s"></i-spinner>
+          <label>Speed 1s</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="danger" speed="0.3s"></i-spinner>
+          <label>Speed 0.3s</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="danger" speed="2s"></i-spinner>
+          <label>Speed 2s</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Empty Color -->
+    <div class="item">
+      <p class="heading">Custom Empty Color</p>
+      <div class="content">
+        <div class="sub-content">
+          <i-spinner color="primary" empty-color="#E0E0E0"></i-spinner>
+          <label>Empty Color #E0E0E0</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="primary" empty-color="red"></i-spinner>
+          <label>Empty Color Red</label>
+        </div>
+        <div class="sub-content">
+          <i-spinner color="primary" empty-color="pink"></i-spinner>
+          <label>Empty Color Pink</label>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Accordion -->
+
+    <!-- Single Type Accordion -->
+    <div class="item">
+      <p class="heading">Accordion Type: Single</p>
+      <div class="content">
+        <i-accordion type="single" style="width: 300px;">
+          <i-accordion-item>
+            <i-accordion-trigger>
+              Accordion 1
+            </i-accordion-trigger>
+            <i-accordion-content>
+              Accordion 1 content
+            </i-accordion-content>
+          </i-accordion-item>
+
+          <i-accordion-item>
+            <i-accordion-trigger>
+              Accordion 2
+            </i-accordion-trigger>
+            <i-accordion-content>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam repudiandae cupiditate, ducimus iusto
+              voluptates quas animi ipsa nam dicta iure?
+            </i-accordion-content>
+          </i-accordion-item>
+
+          <i-accordion-item>
+            <i-accordion-trigger>
+              Accordion 3
+            </i-accordion-trigger>
+            <i-accordion-content>
+              Accordion 3 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, vel?
+            </i-accordion-content>
+          </i-accordion-item>
+        </i-accordion>
+      </div>
+    </div>
+
+    <!-- Multiple Type Accordion -->
+    <div class="item">
+      <p class="heading">Accordion Type: Multiple</p>
+      <div class="content">
+        <i-accordion type="multiple" style="width: 300px;">
+          <i-accordion-item>
+            <i-accordion-trigger>
+              Accordion 1
+            </i-accordion-trigger>
+            <i-accordion-content>
+              Accordion 1 content
+            </i-accordion-content>
+          </i-accordion-item>
+
+          <i-accordion-item>
+            <i-accordion-trigger>
+              Accordion 2
+            </i-accordion-trigger>
+            <i-accordion-content>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam repudiandae cupiditate, ducimus iusto
+              voluptates quas animi ipsa nam dicta iure?
+            </i-accordion-content>
+          </i-accordion-item>
+
+          <i-accordion-item>
+            <i-accordion-trigger>
+              Accordion 3
+            </i-accordion-trigger>
+            <i-accordion-content>
+              Accordion 3 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, vel?
+            </i-accordion-content>
+          </i-accordion-item>
+        </i-accordion>
+      </div>
+    </div>
+
+    <!-- Calendar -->
+
+    <!-- Default Calendar -->
+    <div class="item">
+      <p class="heading">Default Calendar</p>
+      <div class="content">
+        <i-calendar></i-calendar>
+      </div>
+    </div>
+
+    <!-- Color Variants -->
+    <div class="item">
+      <p class="heading">Color Variants</p>
+      <div class="content">
+        <div class="sub-content">
+          <i-calendar color="default" selected="2024-11-15"></i-calendar>
+          <label>Default</label>
+        </div>
+        <div class="sub-content">
+          <i-calendar color="primary" selected="2024-11-15"></i-calendar>
+          <label>Primary</label>
+        </div>
+        <div class="sub-content">
+          <i-calendar color="secondary" selected="2024-11-15"></i-calendar>
+          <label>Secondary</label>
+        </div>
+        <div class="sub-content">
+          <i-calendar color="success" selected="2024-11-15"></i-calendar>
+          <label>Success</label>
+        </div>
+        <div class="sub-content">
+          <i-calendar color="warning" selected="2024-11-15"></i-calendar>
+          <label>Warning</label>
+        </div>
+        <div class="sub-content">
+          <i-calendar color="danger" selected="2024-11-15"></i-calendar>
+          <label>Danger</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendar with Selected Date -->
+    <div class="item">
+      <p class="heading">Calendar with Selected Date</p>
+      <div class="content">
+        <i-calendar color="primary" selected="2024-11-15"></i-calendar>
+        <label>Selected Date: 15th November 2024</label>
+      </div>
+    </div>
+
+    <!-- Calendar with Min and Max Dates -->
+    <div class="item">
+      <p class="heading">Calendar with Min and Max Dates</p>
+      <div class="content">
+        <i-calendar color="primary" min-date="2024-11-12" max-date="2024-11-30" selected="2024-11-15"></i-calendar>
+        <label>Min Date: 12th November 2024, Max Date: 30th November 2024</label>
+      </div>
+    </div>
+
+    <!-- Read-Only Calendar -->
+    <div class="item">
+      <p class="heading">Read-Only Calendar</p>
+      <div class="content">
+        <i-calendar read-only selected="2024-03-10"></i-calendar>
+        <label>Read-Only Mode</label>
+      </div>
+    </div>
   </div>
+
 
   <script>
     const calendar = document.querySelector('i-calendar');
@@ -76,3 +390,41 @@
 </body>
 
 </html>
+
+
+<!-- <i-button color="success" size="lg"> Infinity UI is awesome</i-button>
+<i-spinner size="lg" thickness="5" color="secondary"></i-spinner>
+<i-calendar color="danger" onselect="onSelect(event)" max-date="2024-11-13" selected="2024-12-10">
+</i-calendar>
+<i-accordion style="width: 300px;">
+  <i-accordion-item>
+    <i-accordion-trigger>
+      Accordion 1
+    </i-accordion-trigger>
+    <i-accordion-content>
+      Accordion 1 content
+    </i-accordion-content>
+  </i-accordion-item>
+
+  <i-accordion-item>
+    <i-accordion-trigger>
+      Accordion 2
+    </i-accordion-trigger>
+    <i-accordion-content>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam repudiandae cupiditate, ducimus iusto
+      voluptates quas animi ipsa nam dicta iure?
+    </i-accordion-content>
+  </i-accordion-item>
+
+
+  <i-accordion-item>
+    <i-accordion-trigger>
+      Accordion 3
+    </i-accordion-trigger>
+    <i-accordion-content>
+      Accordion 3 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, vel?
+    </i-accordion-content>
+  </i-accordion-item>
+  </i-accordion-item>
+
+</i-accordion> -->
