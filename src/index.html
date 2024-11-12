@@ -12,19 +12,25 @@
 </head>
 
 <style>
-  .lastItem {
-    border: none;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+    width: 100dvw;
+    gap: 20px;
+    flex-wrap: wrap;
   }
 </style>
 
 <body>
 
 
-  <div
-    style="height: 100dvh; width: 100dvw; color: white; display: flex; justify-content: center; align-items: center;">
-    <!-- <i-calendar color="success" onselect="onSelect(event)" min-date="2024-11-13" selected="2024-12-10">
-    </i-calendar> -->
-
+  <div class="wrapper">
+    <i-button color="success" size="lg"> Infinity UI is awesome</i-button>
+    <i-spinner size="lg" thickness="5" color="secondary"></i-spinner>
+    <i-calendar color="danger" onselect="onSelect(event)" max-date="2024-11-13" selected="2024-12-10">
+    </i-calendar>
     <i-accordion style="width: 300px;">
       <i-accordion-item>
         <i-accordion-trigger>

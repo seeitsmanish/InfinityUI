@@ -1,8 +1,13 @@
 .accordion-root {
   display: block;
-  padding: var(--spacing-md) var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-md);
   font-size: var(--font-size-md);
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
   border-radius: var(--border-radius-lg);
+  border: var(--border-thin) rgb(var(--divider))
+}
+
+.accordion-item-root:last-child {
+  border: none;
 }

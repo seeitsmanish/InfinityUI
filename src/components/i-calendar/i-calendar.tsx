@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Host, Prop, State, Watch } from "@stencil/core";
+import { Component, Event, EventEmitter, h, Host, Prop, State } from "@stencil/core";
 import { getDayMonthYearFromString, getMonthNavigationHeader } from "./utils";
 import dayjs from "dayjs";
 
