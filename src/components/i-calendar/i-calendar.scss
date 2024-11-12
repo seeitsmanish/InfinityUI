@@ -1,7 +1,10 @@
+:host {
+  display: inline-block;
+}
+
 .calendar-root {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
-
   padding: var(--spacing-md);
 
   border: var(--border-thin) rgb(var(--divider));

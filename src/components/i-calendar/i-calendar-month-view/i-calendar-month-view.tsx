@@ -20,7 +20,7 @@ export class ICalendarMonthView {
     @Prop() readOnly: boolean;
 
     getButtonClassNames(day: number | null): string {
-        const dayjsDate = dayjs(`${this.yearInView}-${this.monthInView - 1}-${day}`)
+        const dayjsDate = dayjs(`${this.yearInView}-${this.monthInView}-${day}`)
         // common class for all buttons
         const classes: string[] = ['day-button'];
         // checking if it is an empty button / not to show button
@@ -45,7 +45,7 @@ export class ICalendarMonthView {
     }
 
     isDisabledDate(day: number): boolean {
-        const dayjsDate = dayjs(`${this.yearInView}-${this.monthInView - 1}-${day}`);
+        const dayjsDate = dayjs(`${this.yearInView}-${this.monthInView}-${day}`);
         return (this.minDate && dayjsDate.isBefore(this.minDate)) ||
             (this.maxDate && dayjsDate.isAfter(this.maxDate))
     }
