@@ -64,11 +64,11 @@ export const isToday = (date: number, month: number, year: number): boolean => {
 /**
  * returns the formatted date as a string in the format YYYY-MM-DD
  * @param {number} date - the date
- * @param {number} month - the month (0 indexed)
+ * @param {number} month - the month (1 indexed)
  * @param {number} year - the year
  */
 export const getFormattedDate = (date: number, month: number, year: number): string => {
-    return dayjs().date(date).month(month).year(year).format('YYYY-MM-DD');
+    return dayjs(`${year}-${month}-${date}`).format('YYYY-MM-DD');
 }
 
 /**
@@ -100,7 +100,7 @@ export const isValidDateFormat = (date: string): boolean => {
  */
 export const isDateStringSame = (date: string, day: number, month: number, year: number): boolean => {
     if (!isValidDateFormat(date)) return false;
-    return dayjs(date).isSame(`${year}-${month}-${day}`, 'day')
+    return dayjs(date).isSame(dayjs(`${year}-${month}-${day}`))
 }
 
 /**

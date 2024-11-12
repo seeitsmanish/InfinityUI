@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: var(--spacing-sm);
-    padding-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
 }
 
 .week-day-name {

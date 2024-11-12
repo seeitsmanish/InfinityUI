@@ -80,9 +80,9 @@
   }
 }
 
-/* Apply dark theme when user preference is set to dark */
-@media (prefers-color-scheme: dark) {
-  :root {
-    @include dark-theme;
-  }
-}
+// /* Apply dark theme when user preference is set to dark */
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     @include dark-theme;
+//   }
+// }

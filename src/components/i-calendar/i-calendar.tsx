@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Host, Prop, State } from "@stencil/core";
+import { Component, Event, EventEmitter, h, Host, Prop, State, Watch } from "@stencil/core";
 import { getDayMonthYearFromString, getMonthNavigationHeader } from "./utils";
 import dayjs from "dayjs";
 
@@ -13,6 +13,7 @@ export class ICalendar {
     @Prop() selected?: string;
     @Prop() minDate?: string;
     @Prop() maxDate?: string;
+    @Prop() readOnly: boolean = false;
 
     selectedDateComponents = getDayMonthYearFromString(this.selected);
 
@@ -46,6 +47,7 @@ export class ICalendar {
                     calendarHeading={monthNavigationHeading}
                     handlePrev={this.handlePreviousMonth}
                     handleNext={this.handleNextMonth}
+                    readOnly={this.readOnly}
                 />
 
                 {/* Calendar Body */}
@@ -58,6 +60,7 @@ export class ICalendar {
                         color={this.color}
                         minDate={this.minDate}
                         maxDate={this.maxDate}
+                        readOnly={this.readOnly}
                     />
                 </div>
 

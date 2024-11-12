@@ -22,9 +22,17 @@
 
   <div
     style="height: 100dvh; width: 100dvw; color: white; display: flex; justify-content: center; align-items: center;">
-    <i-calendar color="success" onselect="console.log(event.detail);" min-date="2024-11-13">
+    <i-calendar color="success" onselect="onSelect(event)" min-date="2024-11-13" selected="2024-12-10">
     </i-calendar>
   </div>
+
+  <script>
+    const calendar = document.querySelector('i-calendar');
+    const onSelect = (event) => {
+      calendar.setAttribute('selected', event.detail);
+    };
+
+  </script>
 
 </body>
 

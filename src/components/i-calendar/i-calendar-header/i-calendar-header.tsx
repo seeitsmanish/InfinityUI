@@ -11,11 +11,13 @@ export class ICalendarHeader {
     @Prop() calendarHeading?: JSX.Element | HTMLElement | string;
     @Prop() handlePrev?: () => void;
     @Prop() handleNext?: () => void;
+    @Prop() readOnly: boolean;
 
     render() {
         return (
             <div class='calendar-header'>
-                <i-button classes='calendar-header-nav-button' onClick={() => {
+                <i-button disableRipple classes='calendar-header-nav-button' onClick={() => {
+                    if (this.readOnly) return;
                     this.handlePrev?.();
                 }}>
                     <i-chevron direction="left"></i-chevron>
@@ -23,7 +25,8 @@ export class ICalendarHeader {
                 <span class='calendar-header-info'>
                     {this.calendarHeading}
                 </span>
-                <i-button classes='calendar-header-nav-button' onClick={() => {
+                <i-button disableRipple classes='calendar-header-nav-button' onClick={() => {
+                    if (this.readOnly) return;
                     this.handleNext?.();
                 }}>
                     <i-chevron direction="right"></i-chevron>

@@ -29,12 +29,14 @@ export namespace Components {
         "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
         "maxDate"?: string;
         "minDate"?: string;
+        "readOnly": boolean;
         "selected"?: string;
     }
     interface ICalendarHeader {
         "calendarHeading"?: JSX.Element | HTMLElement | string;
         "handleNext"?: () => void;
         "handlePrev"?: () => void;
+        "readOnly": boolean;
     }
     interface ICalendarMonthView {
         "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
@@ -42,6 +44,7 @@ export namespace Components {
         "maxDate"?: string;
         "minDate"?: string;
         "monthInView": number;
+        "readOnly": boolean;
         "selected"?: string;
         "yearInView": number;
     }
@@ -186,12 +189,14 @@ declare namespace LocalJSX {
         "maxDate"?: string;
         "minDate"?: string;
         "onSelect"?: (event: ICalendarCustomEvent<string>) => void;
+        "readOnly"?: boolean;
         "selected"?: string;
     }
     interface ICalendarHeader {
         "calendarHeading"?: JSX.Element | HTMLElement | string;
         "handleNext"?: () => void;
         "handlePrev"?: () => void;
+        "readOnly"?: boolean;
     }
     interface ICalendarMonthView {
         "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
@@ -199,6 +204,7 @@ declare namespace LocalJSX {
         "maxDate"?: string;
         "minDate"?: string;
         "monthInView"?: number;
+        "readOnly"?: boolean;
         "selected"?: string;
         "yearInView"?: number;
     }

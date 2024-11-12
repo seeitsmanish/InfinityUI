@@ -17,32 +17,42 @@ export class ICalendarMonthView {
     @Prop() color: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'default';
     @Prop() minDate?: string;
     @Prop() maxDate?: string;
+    @Prop() readOnly: boolean;
 
     getButtonClassNames(day: number | null): string {
-        // common class for all buttons
-        const dayClasses = [`day-button`];
-
-        // checking if it is an empty button / not to show button
-        if (!day) dayClasses.push('empty-day-button');
-
         const dayjsDate = dayjs(`${this.yearInView}-${this.monthInView - 1}-${day}`)
-        if (isToday(day, this.monthInView - 1, this.yearInView)) dayClasses.push('today-button');
-        if (isDateStringSame(this.selected, day, this.monthInView, this.yearInView)) dayClasses.push('selected-button')
+        // common class for all buttons
+        const classes: string[] = ['day-button'];
+        // checking if it is an empty button / not to show button
+        if (!day) {
+            classes.push('empty-day-button');
+        }
+        // checking if it is today's date
+        if (isToday(day, this.monthInView - 1, this.yearInView)) {
+            classes.push('today-button');
+        }
+        // checking if it is selected date
+        if (isDateStringSame(this.selected, day, this.monthInView, this.yearInView)) {
+            classes.push('selected-button');
+        }
+        // checking if it is disabled date not between min and max dates
+        if ((this.minDate && dayjsDate.isBefore(this.minDate)) ||
+            (this.maxDate && dayjsDate.isAfter(this.maxDate)) ||
+            this.readOnly) {
+            classes.push('disabled-button');
+        }
+        return classes.join(' ');
+    }
 
-        // disabling buttons based on min and max dates
-        if (this.minDate && dayjsDate.isBefore(this.minDate)) dayClasses.push('disabled-button')
-        if (this.maxDate && dayjsDate.isAfter(this.maxDate)) dayClasses.push('disabled-button')
-        const buttonClassName = dayClasses.join(' ');
-        return buttonClassName;
+    isDisabledDate(day: number): boolean {
+        const dayjsDate = dayjs(`${this.yearInView}-${this.monthInView - 1}-${day}`);
+        return (this.minDate && dayjsDate.isBefore(this.minDate)) ||
+            (this.maxDate && dayjsDate.isAfter(this.maxDate))
     }
     render() {
         const weekNames = getWeekNames();
         const days = getDaysArrayInMonth(this.monthInView - 1, this.yearInView)
-
-        console.log(this.minDate, this.maxDate);
-
         return (
-
             <Fragment>
                 {/* Week Names */}
                 <div class='calendar-body-week-days'>
@@ -60,9 +70,10 @@ export class ICalendarMonthView {
                                 color={this.color}
                                 variant="light"
                                 classes={buttonClassNames}
+                                disableRipple
                                 disabled={!day}
                                 onClick={() => {
-                                    if (!day) return;
+                                    if (!day || this.isDisabledDate(day) || this.readOnly) return;
                                     this.handleDateSelection(getFormattedDate(day, this.monthInView, this.yearInView));
                                 }}
                             >
