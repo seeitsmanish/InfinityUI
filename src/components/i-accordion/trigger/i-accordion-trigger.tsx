@@ -1,17 +1,14 @@
-import { Component, Element, Event, EventEmitter, getAssetPath, h, Host } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'i-accordion-trigger',
   styleUrl: 'i-accordion-trigger.scss',
-  assetsDirs: ['assets'],
   shadow: false,
 })
 export class IAccordionTrigger {
   @Element() el: HTMLElement;
   @Event() accordionTriggerClicked: EventEmitter<{ key: string }>;
   render() {
-    const chevronIconPath = getAssetPath('./assets/chevron.svg');
-
     return (
       <Host
         class="accordion-trigger-root"
@@ -24,7 +21,7 @@ export class IAccordionTrigger {
       >
         <slot></slot>
         <span class="accordion-trigger-chevron">
-          <img src={chevronIconPath} alt="chevron" />
+          <i-chevron direction='down' />
         </span>
       </Host>
     );
