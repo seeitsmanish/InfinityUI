@@ -22,7 +22,7 @@ export class ICalendarMonthView {
     getButtonClassNames(day: number | null): string {
         const dayjsDate = dayjs(`${this.yearInView}-${this.monthInView}-${day}`)
         // common class for all buttons
-        const classes: string[] = ['day-button'];
+        const classes: string[] = ['day-button calendar-button-variant'];
         // checking if it is an empty button / not to show button
         if (!day) {
             classes.push('empty-day-button');

@@ -13,6 +13,6 @@
 }
 
 .calendar-header-info {
-    padding: 0px var(--spacing-lg);
-    white-space: nowrap;
+    padding: 0px var(--spacing-lg) !important;
+    white-space: nowrap !important;
 }

@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { DateTypeComponents } from "./components/i-calendar/models";
+export { DateTypeComponents } from "./components/i-calendar/models";
 export namespace Components {
     interface IAccordion {
         "type": 'single' | 'multiple';
@@ -34,9 +36,11 @@ export namespace Components {
     }
     interface ICalendarHeader {
         "calendarHeading"?: JSX.Element | HTMLElement | string;
+        "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
         "handleNext"?: () => void;
         "handlePrev"?: () => void;
         "readOnly": boolean;
+        "toggleCurrentView": () => void;
     }
     interface ICalendarMonthView {
         "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
@@ -47,6 +51,14 @@ export namespace Components {
         "readOnly": boolean;
         "selected"?: string;
         "yearInView": number;
+    }
+    interface ICalendarYearView {
+        "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "handleYearSelection": (year: number) => void;
+        "readOnly": boolean;
+        "selectedDateComponents": DateTypeComponents;
+        "yearInView": number;
+        "yearNavigationRangeValue": number;
     }
     interface IChevron {
         "direction": 'up' | 'down' | 'left' | 'right';
@@ -138,6 +150,12 @@ declare global {
         prototype: HTMLICalendarMonthViewElement;
         new (): HTMLICalendarMonthViewElement;
     };
+    interface HTMLICalendarYearViewElement extends Components.ICalendarYearView, HTMLStencilElement {
+    }
+    var HTMLICalendarYearViewElement: {
+        prototype: HTMLICalendarYearViewElement;
+        new (): HTMLICalendarYearViewElement;
+    };
     interface HTMLIChevronElement extends Components.IChevron, HTMLStencilElement {
     }
     var HTMLIChevronElement: {
@@ -159,6 +177,7 @@ declare global {
         "i-calendar": HTMLICalendarElement;
         "i-calendar-header": HTMLICalendarHeaderElement;
         "i-calendar-month-view": HTMLICalendarMonthViewElement;
+        "i-calendar-year-view": HTMLICalendarYearViewElement;
         "i-chevron": HTMLIChevronElement;
         "i-spinner": HTMLISpinnerElement;
     }
@@ -188,15 +207,20 @@ declare namespace LocalJSX {
         "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
         "maxDate"?: string;
         "minDate"?: string;
+        /**
+          * handles the calendar date selection
+         */
         "onSelect"?: (event: ICalendarCustomEvent<string>) => void;
         "readOnly"?: boolean;
         "selected"?: string;
     }
     interface ICalendarHeader {
         "calendarHeading"?: JSX.Element | HTMLElement | string;
+        "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
         "handleNext"?: () => void;
         "handlePrev"?: () => void;
         "readOnly"?: boolean;
+        "toggleCurrentView"?: () => void;
     }
     interface ICalendarMonthView {
         "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
@@ -207,6 +231,14 @@ declare namespace LocalJSX {
         "readOnly"?: boolean;
         "selected"?: string;
         "yearInView"?: number;
+    }
+    interface ICalendarYearView {
+        "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "handleYearSelection"?: (year: number) => void;
+        "readOnly"?: boolean;
+        "selectedDateComponents"?: DateTypeComponents;
+        "yearInView"?: number;
+        "yearNavigationRangeValue"?: number;
     }
     interface IChevron {
         "direction"?: 'up' | 'down' | 'left' | 'right';
@@ -227,6 +259,7 @@ declare namespace LocalJSX {
         "i-calendar": ICalendar;
         "i-calendar-header": ICalendarHeader;
         "i-calendar-month-view": ICalendarMonthView;
+        "i-calendar-year-view": ICalendarYearView;
         "i-chevron": IChevron;
         "i-spinner": ISpinner;
     }
@@ -243,6 +276,7 @@ declare module "@stencil/core" {
             "i-calendar": LocalJSX.ICalendar & JSXBase.HTMLAttributes<HTMLICalendarElement>;
             "i-calendar-header": LocalJSX.ICalendarHeader & JSXBase.HTMLAttributes<HTMLICalendarHeaderElement>;
             "i-calendar-month-view": LocalJSX.ICalendarMonthView & JSXBase.HTMLAttributes<HTMLICalendarMonthViewElement>;
+            "i-calendar-year-view": LocalJSX.ICalendarYearView & JSXBase.HTMLAttributes<HTMLICalendarYearViewElement>;
             "i-chevron": LocalJSX.IChevron & JSXBase.HTMLAttributes<HTMLIChevronElement>;
             "i-spinner": LocalJSX.ISpinner & JSXBase.HTMLAttributes<HTMLISpinnerElement>;
         }

@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { DateTypeComponents } from "./models";
 /**
  * Get an array of week days based on the current locale.
  * 
@@ -108,13 +109,55 @@ export const isDateStringSame = (date: string, day: number, month: number, year:
  * @param date - the date from which year, month and day has to be extracted
  * @returns object containing the date, month and year
  */
-export const getDayMonthYearFromString = (date: string): { year: number, month: number, day: number } => {
-    if (!isValidDateFormat(date)) return null;
-    const dayJsDate = dayjs(date);
-    return {
-        year: dayJsDate.year(),
-        month: dayJsDate.month() + 1,
-        day: dayJsDate.date(),
+export const getDayMonthYearFromString = (date: string): DateTypeComponents => {
+    try {
+        if (!isValidDateFormat(date)) return {
+            date: dayjs().date(),
+            month: dayjs().month() + 1,
+            year: dayjs().year(),
+        }
+        const dayJsDate = dayjs(date);
+        return {
+            year: dayJsDate.year(),
+            month: dayJsDate.month() + 1,
+            date: dayJsDate.date(),
+        }
+    } catch (err) {
+        return {
+            date: dayjs().date(),
+            month: dayjs().month() + 1,
+            year: dayjs().year(),
+        }
     }
 }
 
+/**
+ * returns an array of years within the given range
+ * @param {number} year - the current year
+ * @param {number} range - the range of years to include (default is 7)
+ * @returns {number[]} an array of years within the given range
+ */
+export const getYearRange = (year: number, range: number = 7): number[] => {
+    if (range < 0) {
+        throw new Error("Range must be a non-negative number");
+    }
+    const MIN_YEAR = 1;
+    const startYear = Math.max(MIN_YEAR, year - range);
+    const endYear = year + range;
+    const yearArray: number[] = [];
+    for (let currentYear = startYear; currentYear <= endYear; currentYear++) {
+        if (dayjs(`${currentYear}-01-01`).isValid()) {
+            yearArray.push(currentYear);
+        }
+    }
+    return yearArray;
+}
+/**
+ *  Returns the string based on the year passed in form <year - range> - <year + range>
+ * @param {number} year - the year
+ */
+export const getYearNavigationHeader = (year: number, range: number = 7): string => {
+    const startYear = Math.max(year - range, 1);
+    const endYear = year + range;
+    return `${startYear} - ${endYear}`;
+}
