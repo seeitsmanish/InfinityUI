@@ -5,7 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ColorType, sizeType } from "./models";
 import { DateTypeComponents } from "./components/i-calendar/models";
+export { ColorType, sizeType } from "./models";
 export { DateTypeComponents } from "./components/i-calendar/models";
 export namespace Components {
     interface IAccordion {
@@ -19,12 +21,24 @@ export namespace Components {
     }
     interface IAccordionTrigger {
     }
+    interface IAvatar {
+        "alt": string;
+        "classes": string;
+        "color"?: ColorType;
+        "lazy"?: boolean;
+        "ring"?: boolean;
+        "ringColor"?: string;
+        "ringWidth"?: number;
+        "shape": 'circular' | 'square' | 'rounded-square';
+        "size": sizeType;
+        "src": string;
+    }
     interface IButton {
         "classes": string;
-        "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "color": ColorType;
         "disableRipple": boolean;
         "disabled": boolean;
-        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "size": sizeType;
         "variant": 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
     }
     interface ICalendar {
@@ -64,9 +78,9 @@ export namespace Components {
         "direction": 'up' | 'down' | 'left' | 'right';
     }
     interface ISpinner {
-        "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | string;
+        "color": ColorType | string;
         "emptyColor": string;
-        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "size": sizeType;
         "speed": string;
         "thickness": string;
     }
@@ -114,6 +128,12 @@ declare global {
     var HTMLIAccordionTriggerElement: {
         prototype: HTMLIAccordionTriggerElement;
         new (): HTMLIAccordionTriggerElement;
+    };
+    interface HTMLIAvatarElement extends Components.IAvatar, HTMLStencilElement {
+    }
+    var HTMLIAvatarElement: {
+        prototype: HTMLIAvatarElement;
+        new (): HTMLIAvatarElement;
     };
     interface HTMLIButtonElement extends Components.IButton, HTMLStencilElement {
     }
@@ -173,6 +193,7 @@ declare global {
         "i-accordion-content": HTMLIAccordionContentElement;
         "i-accordion-item": HTMLIAccordionItemElement;
         "i-accordion-trigger": HTMLIAccordionTriggerElement;
+        "i-avatar": HTMLIAvatarElement;
         "i-button": HTMLIButtonElement;
         "i-calendar": HTMLICalendarElement;
         "i-calendar-header": HTMLICalendarHeaderElement;
@@ -195,12 +216,24 @@ declare namespace LocalJSX {
     interface IAccordionTrigger {
         "onAccordionTriggerClicked"?: (event: IAccordionTriggerCustomEvent<{ key: string }>) => void;
     }
+    interface IAvatar {
+        "alt"?: string;
+        "classes"?: string;
+        "color"?: ColorType;
+        "lazy"?: boolean;
+        "ring"?: boolean;
+        "ringColor"?: string;
+        "ringWidth"?: number;
+        "shape"?: 'circular' | 'square' | 'rounded-square';
+        "size"?: sizeType;
+        "src"?: string;
+    }
     interface IButton {
         "classes"?: string;
-        "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+        "color"?: ColorType;
         "disableRipple"?: boolean;
         "disabled"?: boolean;
-        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "size"?: sizeType;
         "variant"?: 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow';
     }
     interface ICalendar {
@@ -244,9 +277,9 @@ declare namespace LocalJSX {
         "direction"?: 'up' | 'down' | 'left' | 'right';
     }
     interface ISpinner {
-        "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | string;
+        "color"?: ColorType | string;
         "emptyColor"?: string;
-        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "size"?: sizeType;
         "speed"?: string;
         "thickness"?: string;
     }
@@ -255,6 +288,7 @@ declare namespace LocalJSX {
         "i-accordion-content": IAccordionContent;
         "i-accordion-item": IAccordionItem;
         "i-accordion-trigger": IAccordionTrigger;
+        "i-avatar": IAvatar;
         "i-button": IButton;
         "i-calendar": ICalendar;
         "i-calendar-header": ICalendarHeader;
@@ -272,6 +306,7 @@ declare module "@stencil/core" {
             "i-accordion-content": LocalJSX.IAccordionContent & JSXBase.HTMLAttributes<HTMLIAccordionContentElement>;
             "i-accordion-item": LocalJSX.IAccordionItem & JSXBase.HTMLAttributes<HTMLIAccordionItemElement>;
             "i-accordion-trigger": LocalJSX.IAccordionTrigger & JSXBase.HTMLAttributes<HTMLIAccordionTriggerElement>;
+            "i-avatar": LocalJSX.IAvatar & JSXBase.HTMLAttributes<HTMLIAvatarElement>;
             "i-button": LocalJSX.IButton & JSXBase.HTMLAttributes<HTMLIButtonElement>;
             "i-calendar": LocalJSX.ICalendar & JSXBase.HTMLAttributes<HTMLICalendarElement>;
             "i-calendar-header": LocalJSX.ICalendarHeader & JSXBase.HTMLAttributes<HTMLICalendarHeaderElement>;
