@@ -1,6 +1,5 @@
 import { Component, Event, EventEmitter, h, Host, Prop, State } from "@stencil/core";
 import { getDayMonthYearFromString, getMonthNavigationHeader, getYearNavigationHeader } from "./utils";
-import dayjs from "dayjs";
 import { DateTypeComponents } from "./models";
 
 @Component({
@@ -44,9 +43,9 @@ export class ICalendar {
     /**
      * handles the calendar date selection
      */
-    @Event() select: EventEmitter<string>;
+    @Event() dateSelect: EventEmitter<string>;
     handleDateSelection = (date: string) => {
-        this.select.emit(date);
+        this.dateSelect.emit(date);
     }
     /**
      * toggle the current view i.e. 'month' view or 'year' view

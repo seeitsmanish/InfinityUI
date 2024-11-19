@@ -10,7 +10,7 @@
 | Property   | Attribute  | Description | Type      | Default                                      |
 | ---------- | ---------- | ----------- | --------- | -------------------------------------------- |
 | `disabled` | `disabled` |             | `boolean` | `false`                                      |
-| `key`      | `key`      |             | `string`  | `Math.random().toString(36).substring(2, 9)` |
+| `itemId`   | `item-id`  |             | `string`  | `Math.random().toString(36).substring(2, 9)` |
 
 
 ----------------------------------------------

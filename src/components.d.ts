@@ -143,7 +143,7 @@ declare global {
         new (): HTMLIButtonElement;
     };
     interface HTMLICalendarElementEventMap {
-        "select": string;
+        "dateSelect": string;
     }
     interface HTMLICalendarElement extends Components.ICalendar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLICalendarElementEventMap>(type: K, listener: (this: HTMLICalendarElement, ev: ICalendarCustomEvent<HTMLICalendarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -245,7 +245,7 @@ declare namespace LocalJSX {
         /**
           * handles the calendar date selection
          */
-        "onSelect"?: (event: ICalendarCustomEvent<string>) => void;
+        "onDateSelect"?: (event: ICalendarCustomEvent<string>) => void;
         "readOnly"?: boolean;
         "selected"?: string;
     }
