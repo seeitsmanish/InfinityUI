@@ -46,7 +46,7 @@ export class IAvatar {
         console.log(this.isAvatarVisible);
         const initials = this.getInitials(this.alt);
         const avatarClassName = `i-avatar-root ${this.size} ${this.shape} ${this.color} ${this.classes}`
-        const ringStyles = this.ring ? { outlineColor: this.ringColor, outlineWidth: this.ringWidth, outlineStyle: "solid", outlineOffset: "2px" } : {};
+        const ringStyles = this.ring ? { outlineColor: this.ringColor, outlineWidth: this.ringWidth, outlineStyle: "solid", outlineOffset: this.ringOffset } : {};
         const customColorStyles = { backgroundColor: this.color };
         return (
             <div tabindex='0' class={avatarClassName}
