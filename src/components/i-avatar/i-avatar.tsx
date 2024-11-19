@@ -13,13 +13,14 @@ export class IAvatar {
     @Prop() alt: string = 'avatar image'; // Alt text for the image
     @Prop() lazy?: boolean = true; // Lazy loading for the image
 
-    @Prop() color?: ColorType = 'default';
+    @Prop() color?: ColorType | string = 'default';
     @Prop() size: sizeType = 'sm'; // Size of the avatar
     @Prop() shape: 'circular' | 'square' | 'rounded-square' = 'circular'; // Shape of the avatar
 
     @Prop() ring?: boolean = false; // Whether the avatar has a ring
     @Prop() ringColor?: string; // Color of the ring
-    @Prop() ringWidth?: number; // Width of the ring
+    @Prop() ringWidth?: string = "2px"; // Width of the ring
+    @Prop() ringOffset?: string = "2px"; // offset of the ring
 
     @Prop() classes: string = ''; // Custom classes for styling
 
@@ -45,8 +46,13 @@ export class IAvatar {
         console.log(this.isAvatarVisible);
         const initials = this.getInitials(this.alt);
         const avatarClassName = `i-avatar-root ${this.size} ${this.shape} ${this.color} ${this.classes}`
+        const ringStyles = this.ring ? { outlineColor: this.ringColor, outlineWidth: this.ringWidth, outlineStyle: "solid", outlineOffset: "2px" } : {};
+        const customColorStyles = { backgroundColor: this.color };
         return (
-            <div tabindex='0' class={avatarClassName}>
+            <div tabindex='0' class={avatarClassName}
+                style={{ ...customColorStyles, ...ringStyles }}
+                data-color={this.color}
+            >
                 {
                     this.isAvatarVisible ?
                         <img class='i-avatar-image' loading='lazy' src={this.src} alt={this.alt} onError={() => this.isAvatarVisible = false} />

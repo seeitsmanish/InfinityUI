@@ -24,11 +24,12 @@ export namespace Components {
     interface IAvatar {
         "alt": string;
         "classes": string;
-        "color"?: ColorType;
+        "color"?: ColorType | string;
         "lazy"?: boolean;
         "ring"?: boolean;
         "ringColor"?: string;
-        "ringWidth"?: number;
+        "ringOffset"?: string;
+        "ringWidth"?: string;
         "shape": 'circular' | 'square' | 'rounded-square';
         "size": sizeType;
         "src": string;
@@ -219,11 +220,12 @@ declare namespace LocalJSX {
     interface IAvatar {
         "alt"?: string;
         "classes"?: string;
-        "color"?: ColorType;
+        "color"?: ColorType | string;
         "lazy"?: boolean;
         "ring"?: boolean;
         "ringColor"?: string;
-        "ringWidth"?: number;
+        "ringOffset"?: string;
+        "ringWidth"?: string;
         "shape"?: 'circular' | 'square' | 'rounded-square';
         "size"?: sizeType;
         "src"?: string;

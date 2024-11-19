@@ -1,5 +1,5 @@
 :host {
-    display: inline-block;
+    display: inline;
 }
 
 .i-avatar-root {
@@ -48,35 +48,42 @@
     }
 
     &.default {
+        outline-color: rgb(var(--default), 0.8);
         background-color: rgb(var(--default));
         color: rgb(var(--white));
     }
 
     &.primary {
+        outline-color: rgb(var(--primary), 0.8);
         background-color: rgb(var(--primary));
         color: rgb(var(--white));
     }
 
     &.secondary {
+        outline-color: rgb(var(--secondary), 0.8);
         background-color: rgb(var(--secondary));
         color: rgb(var(--white));
     }
 
     &.success {
+        outline-color: rgb(var(--success), 0.8);
         background-color: rgb(var(--success));
         color: rgb(var(--black));
     }
 
     &.warning {
+        outline-color: rgb(var(--warning), 0.8);
         background-color: rgb(var(--warning));
         color: rgb(var(--black));
     }
 
     &.danger {
+        outline-color: rgb(var(--danger), 0.8);
         background-color: rgb(var(--danger));
         color: rgb(var(--white));
     }
 }
+
 
 .i-avatar-image {
     object-fit: cover;
