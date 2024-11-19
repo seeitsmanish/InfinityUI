@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { ColorType, sizeType } from '../../models';
 
 @Component({
   tag: 'i-button',
@@ -6,9 +7,9 @@ import { Component, Prop, h } from '@stencil/core';
   shadow: false,
 })
 export class IButton {
-  @Prop() color: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'default';
+  @Prop() color: ColorType = 'default';
   @Prop() variant: 'solid' | 'outline' | 'light' | 'flat' | 'ghost' | 'shadow' = 'solid';
-  @Prop() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+  @Prop() size: sizeType = 'md';
   @Prop() disabled: boolean = false;
   @Prop() disableRipple: boolean = false;
   @Prop() classes: string = '';

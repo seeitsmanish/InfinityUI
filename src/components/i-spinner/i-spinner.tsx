@@ -1,4 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
+import { ColorType, sizeType } from '../../models';
 
 @Component({
   tag: 'i-spinner',
@@ -6,11 +7,11 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class ISpinner {
-  @Prop() color: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | string = 'default';
+  @Prop() color: ColorType | string = 'default';
   @Prop() thickness: string = '3px';
   @Prop() emptyColor: string = 'transparent';
   @Prop() speed: string = '0.6s';
-  @Prop() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'sm';
+  @Prop() size: sizeType = 'sm';
 
   render() {
     return (
