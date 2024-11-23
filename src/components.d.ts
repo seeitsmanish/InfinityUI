@@ -78,6 +78,24 @@ export namespace Components {
     interface IChevron {
         "direction": 'up' | 'down' | 'left' | 'right';
     }
+    interface IInputField {
+        "color": ColorType;
+        "description"?: string;
+        "disabled": boolean;
+        "endContent"?: string | number | JSX.Element | HTMLElement;
+        "errorMessage"?: string;
+        "outlineColor"?: string;
+        "outlineWidth"?: string;
+        "placeHolderColor"?: string;
+        "placeholder": string;
+        "radius": sizeType;
+        "startContent"?: string | number | JSX.Element | HTMLElement;
+        "theme"?: Record<string, string>;
+        "type": 'text' | 'number' | 'email' | 'password';
+        "valid"?: boolean;
+        "value": string;
+        "variant": 'flat' | 'outline' | 'underline' | 'light';
+    }
     interface ISpinner {
         "color": ColorType | string;
         "emptyColor": string;
@@ -93,6 +111,10 @@ export interface IAccordionTriggerCustomEvent<T> extends CustomEvent<T> {
 export interface ICalendarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLICalendarElement;
+}
+export interface IInputFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIInputFieldElement;
 }
 declare global {
     interface HTMLIAccordionElement extends Components.IAccordion, HTMLStencilElement {
@@ -183,6 +205,23 @@ declare global {
         prototype: HTMLIChevronElement;
         new (): HTMLIChevronElement;
     };
+    interface HTMLIInputFieldElementEventMap {
+        "valueChange": string | number;
+    }
+    interface HTMLIInputFieldElement extends Components.IInputField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIInputFieldElementEventMap>(type: K, listener: (this: HTMLIInputFieldElement, ev: IInputFieldCustomEvent<HTMLIInputFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIInputFieldElementEventMap>(type: K, listener: (this: HTMLIInputFieldElement, ev: IInputFieldCustomEvent<HTMLIInputFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIInputFieldElement: {
+        prototype: HTMLIInputFieldElement;
+        new (): HTMLIInputFieldElement;
+    };
     interface HTMLISpinnerElement extends Components.ISpinner, HTMLStencilElement {
     }
     var HTMLISpinnerElement: {
@@ -201,6 +240,7 @@ declare global {
         "i-calendar-month-view": HTMLICalendarMonthViewElement;
         "i-calendar-year-view": HTMLICalendarYearViewElement;
         "i-chevron": HTMLIChevronElement;
+        "i-input-field": HTMLIInputFieldElement;
         "i-spinner": HTMLISpinnerElement;
     }
 }
@@ -278,6 +318,25 @@ declare namespace LocalJSX {
     interface IChevron {
         "direction"?: 'up' | 'down' | 'left' | 'right';
     }
+    interface IInputField {
+        "color"?: ColorType;
+        "description"?: string;
+        "disabled"?: boolean;
+        "endContent"?: string | number | JSX.Element | HTMLElement;
+        "errorMessage"?: string;
+        "onValueChange"?: (event: IInputFieldCustomEvent<string | number>) => void;
+        "outlineColor"?: string;
+        "outlineWidth"?: string;
+        "placeHolderColor"?: string;
+        "placeholder"?: string;
+        "radius"?: sizeType;
+        "startContent"?: string | number | JSX.Element | HTMLElement;
+        "theme"?: Record<string, string>;
+        "type"?: 'text' | 'number' | 'email' | 'password';
+        "valid"?: boolean;
+        "value"?: string;
+        "variant"?: 'flat' | 'outline' | 'underline' | 'light';
+    }
     interface ISpinner {
         "color"?: ColorType | string;
         "emptyColor"?: string;
@@ -297,6 +356,7 @@ declare namespace LocalJSX {
         "i-calendar-month-view": ICalendarMonthView;
         "i-calendar-year-view": ICalendarYearView;
         "i-chevron": IChevron;
+        "i-input-field": IInputField;
         "i-spinner": ISpinner;
     }
 }
@@ -315,6 +375,7 @@ declare module "@stencil/core" {
             "i-calendar-month-view": LocalJSX.ICalendarMonthView & JSXBase.HTMLAttributes<HTMLICalendarMonthViewElement>;
             "i-calendar-year-view": LocalJSX.ICalendarYearView & JSXBase.HTMLAttributes<HTMLICalendarYearViewElement>;
             "i-chevron": LocalJSX.IChevron & JSXBase.HTMLAttributes<HTMLIChevronElement>;
+            "i-input-field": LocalJSX.IInputField & JSXBase.HTMLAttributes<HTMLIInputFieldElement>;
             "i-spinner": LocalJSX.ISpinner & JSXBase.HTMLAttributes<HTMLISpinnerElement>;
         }
     }

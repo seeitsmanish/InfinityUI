@@ -1,0 +1,103 @@
+:host {
+    display: inline-flex;
+}
+
+.i-input-field-root {
+
+    --input-field-root-opacity: 0.2;
+    --input-field-root-hover-opacity: 0.3;
+
+    display: flex;
+    align-items: center;
+    color: rgb(var(--foreground));
+    height: 100%;
+    width: 100%;
+    padding: var(--spacing-sm);
+    transition: var(--animation-duration-short) ease-in-out;
+
+
+    &--default {
+        background-color: rgba(var(--default), var(--input-field-root-opacity));
+        color: rgb(var(--default)) !important;
+
+        &:hover {
+            background-color: rgba(var(--default), var(--input-field-root-hover-opacity));
+        }
+    }
+
+    &--primary {
+        background-color: rgba(var(--primary), var(--input-field-root-opacity));
+        color: rgb(var(--primary));
+
+        &:hover {
+            background-color: rgba(var(--primary), var(--input-field-root-hover-opacity));
+        }
+
+    }
+
+    &--secondary {
+        background-color: rgba(var(--secondary), var(--input-field-root-opacity));
+        color: rgb(var(--secondary)) !important;
+
+        &:hover {
+            background-color: rgba(var(--secondary), var(--input-field-root-hover-opacity));
+        }
+    }
+
+    &--success {
+        background-color: rgba(var(--success), var(--input-field-root-opacity));
+        color: rgb(var(--success)) !important;
+
+        &:hover {
+            background-color: rgba(var(--success), var(--input-field-root-hover-opacity));
+        }
+    }
+
+    &--warning {
+        background-color: rgba(var(--warning), var(--input-field-root-opacity));
+        color: rgb(var(--warning)) !important;
+
+        &:hover {
+            background-color: rgba(var(--warning), var(--input-field-root-hover-opacity));
+        }
+    }
+
+    &--danger {
+        background-color: rgba(var(--danger), var(--input-field-root-opacity));
+        color: rgb(var(--danger)) !important;
+
+        &:hover {
+            background-color: rgba(var(--danger), var(--input-field-root-hover-opacity));
+        }
+    }
+
+    &-radius {
+        &--xs {
+            border-radius: var(--border-radius-xs);
+        }
+
+        &--sm {
+            border-radius: var(--border-radius-sm);
+        }
+
+        &--md {
+            border-radius: var(--border-radius-md);
+        }
+
+        &--lg {
+            border-radius: var(--border-radius-lg);
+        }
+
+        &--xl {
+            border-radius: var(--border-radius-xl);
+        }
+    }
+}
+
+.i-input-field-input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: inherit;
+    padding: var(--spacing-sm);
+}
