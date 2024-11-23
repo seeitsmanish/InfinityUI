@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Prop, } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Prop, State, } from '@stencil/core';
 import { ColorType, sizeType } from "../../models";
 
 @Component({
@@ -26,6 +26,10 @@ export class IInputField {
     @Prop() endContent?: string | number | JSX.Element | HTMLElement;
     @Prop() theme?: Record<string, string>;
 
+    @Element() el: HTMLElement;
+    private inputRef: HTMLInputElement;
+    @State() isFocussed: boolean = false;
+
     handleValueChange = (e: any) => {
         this.valueChange.emit(e.target.value);
     }
@@ -47,10 +51,17 @@ export class IInputField {
             'i-input-field-root': [
                 'i-input-field-root',
                 `i-input-field-root--${this.color}`,
-                `i-input-field-root-radius--${this.radius}`
+                `i-input-field-root-radius--${this.radius}`,
+                this.isFocussed && 'i-input-field-root-focussed'
             ],
-            'i-input-field-start-content': ['i-input-field-start-content'],
-            'i-input-field-end-content': ['i-input-field-end-content'],
+            'i-input-field-start-content': [
+                'i-input-field-start-content',
+                `i-input-field-start-content--${this.color}`
+            ],
+            'i-input-field-end-content': [
+                'i-input-field-end-content',
+                `i-input-field-start-content--${this.color}`
+            ],
             'i-input-field-input': ['i-input-field-input'],
         };
 
@@ -72,23 +83,35 @@ export class IInputField {
             <div
                 tabindex="0"
                 class={classes['i-input-field-root']}
+                onFocus={() => {
+                    this.isFocussed = true;
+                    this.inputRef.focus();
+                }}
+                onBlur={() => {
+                    this.isFocussed = false;
+                    this.inputRef.blur();
+                }}
             >
                 {
-                    this.startContent ? (
+                    this.startContent && (
                         <div class={classes['i-input-field-start-content']}>
                             {this.startContent}
+                            <slot name="start-content" />
                         </div>
-                    ) : null
+                    )
                 }
                 <input
+                    ref={(el) => this.inputRef = el as HTMLInputElement}
                     class={classes['i-input-field-input']}
+                    placeholder={this.placeholder}
                 />
                 {
-                    this.endContent ? (
+                    this.endContent && (
                         <div class={classes['i-input-field-end-content']}>
                             {this.endContent}
+                            <slot name="end-content" />
                         </div>
-                    ) : null
+                    )
                 }
             </div>
         )

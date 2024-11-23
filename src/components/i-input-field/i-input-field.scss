@@ -6,19 +6,27 @@
 
     --input-field-root-opacity: 0.2;
     --input-field-root-hover-opacity: 0.3;
-
+    --input-field-root-placeholder-opacity: 0.5;
+    --input-field-content-opacity: 0.7;
     display: flex;
     align-items: center;
     color: rgb(var(--foreground));
     height: 100%;
     width: 100%;
-    padding: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
     transition: var(--animation-duration-short) ease-in-out;
 
+    &:focus {
+        outline: 1px solid green;
+    }
 
     &--default {
         background-color: rgba(var(--default), var(--input-field-root-opacity));
-        color: rgb(var(--default)) !important;
+        color: rgb(var(--default));
+
+        ::placeholder {
+            color: rgba(var(--default), var(--input-field-root-placeholder-opacity));
+        }
 
         &:hover {
             background-color: rgba(var(--default), var(--input-field-root-hover-opacity));
@@ -29,6 +37,10 @@
         background-color: rgba(var(--primary), var(--input-field-root-opacity));
         color: rgb(var(--primary));
 
+        ::placeholder {
+            color: rgba(var(--primary), var(--input-field-root-placeholder-opacity));
+        }
+
         &:hover {
             background-color: rgba(var(--primary), var(--input-field-root-hover-opacity));
         }
@@ -37,7 +49,11 @@
 
     &--secondary {
         background-color: rgba(var(--secondary), var(--input-field-root-opacity));
-        color: rgb(var(--secondary)) !important;
+        color: rgb(var(--secondary));
+
+        ::placeholder {
+            color: rgba(var(--secondary), var(--input-field-root-placeholder-opacity));
+        }
 
         &:hover {
             background-color: rgba(var(--secondary), var(--input-field-root-hover-opacity));
@@ -46,7 +62,11 @@
 
     &--success {
         background-color: rgba(var(--success), var(--input-field-root-opacity));
-        color: rgb(var(--success)) !important;
+        color: rgb(var(--success));
+
+        ::placeholder {
+            color: rgba(var(--success), var(--input-field-root-placeholder-opacity));
+        }
 
         &:hover {
             background-color: rgba(var(--success), var(--input-field-root-hover-opacity));
@@ -55,7 +75,11 @@
 
     &--warning {
         background-color: rgba(var(--warning), var(--input-field-root-opacity));
-        color: rgb(var(--warning)) !important;
+        color: rgb(var(--warning));
+
+        ::placeholder {
+            color: rgba(var(--warning), var(--input-field-root-placeholder-opacity));
+        }
 
         &:hover {
             background-color: rgba(var(--warning), var(--input-field-root-hover-opacity));
@@ -64,7 +88,11 @@
 
     &--danger {
         background-color: rgba(var(--danger), var(--input-field-root-opacity));
-        color: rgb(var(--danger)) !important;
+        color: rgb(var(--danger));
+
+        ::placeholder {
+            color: rgba(var(--danger), var(--input-field-root-placeholder-opacity));
+        }
 
         &:hover {
             background-color: rgba(var(--danger), var(--input-field-root-hover-opacity));
@@ -95,9 +123,44 @@
 }
 
 .i-input-field-input {
+    flex: 1;
     border: none;
     background-color: transparent;
     outline: none;
     color: inherit;
     padding: var(--spacing-sm);
+}
+
+.i-input-field-start-content,
+.i-input-field-right-content {
+    &--default {
+        color: rgba(var(--default), var(--input-field-content-opacity));
+        stroke: rgba(var(--default), var(--input-field-content-opacity));
+    }
+
+    &--primary {
+        color: rgba(var(--primary), var(--input-field-content-opacity));
+        stroke: rgba(var(--primary), var(--input-field-content-opacity));
+    }
+
+    &--secondary {
+        color: rgba(var(--secondary), var(--input-field-content-opacity));
+        stroke: rgba(var(--secondary), var(--input-field-content-opacity));
+    }
+
+    &--success {
+        color: rgba(var(--success), var(--input-field-content-opacity));
+        stroke: rgba(var(--success), var(--input-field-content-opacity));
+    }
+
+    &--warning {
+        color: rgba(var(--warning), var(--input-field-content-opacity));
+        stroke: rgba(var(--warning), var(--input-field-content-opacity));
+    }
+
+    &--danger {
+        color: rgba(var(--danger), var(--input-field-content-opacity));
+        stroke: rgba(var(--danger), var(--input-field-content-opacity));
+    }
+
 }
