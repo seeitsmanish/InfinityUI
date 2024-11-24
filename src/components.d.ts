@@ -91,7 +91,7 @@ export namespace Components {
         "radius": sizeType;
         "startContent"?: string | number | JSX.Element | HTMLElement;
         "theme"?: Record<string, string>;
-        "type": 'text' | 'number' | 'email' | 'password';
+        "type": 'text' | 'number' | 'email' | 'password' | 'number';
         "valid"?: boolean;
         "value": string;
         "variant": 'flat' | 'outline' | 'underline' | 'light';
@@ -332,7 +332,7 @@ declare namespace LocalJSX {
         "radius"?: sizeType;
         "startContent"?: string | number | JSX.Element | HTMLElement;
         "theme"?: Record<string, string>;
-        "type"?: 'text' | 'number' | 'email' | 'password';
+        "type"?: 'text' | 'number' | 'email' | 'password' | 'number';
         "valid"?: boolean;
         "value"?: string;
         "variant"?: 'flat' | 'outline' | 'underline' | 'light';

@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Prop, State, } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Prop, State, } from '@stencil/core';
 import { ColorType, sizeType } from "../../models";
 
 @Component({
@@ -10,7 +10,7 @@ export class IInputField {
 
     @Prop() value: string = '';
     @Event() valueChange: EventEmitter<string | number>;
-    @Prop() type: 'text' | 'number' | 'email' | 'password' = 'text';
+    @Prop() type: 'text' | 'number' | 'email' | 'password' | 'number' = 'text';
     @Prop() placeholder: string = '';
     @Prop() placeHolderColor?: string;
     @Prop() disabled: boolean = false;
@@ -26,8 +26,6 @@ export class IInputField {
     @Prop() endContent?: string | number | JSX.Element | HTMLElement;
     @Prop() theme?: Record<string, string>;
 
-    @Element() el: HTMLElement;
-    private inputRef: HTMLInputElement;
     @State() isFocussed: boolean = false;
 
     handleValueChange = (e: any) => {
@@ -52,7 +50,6 @@ export class IInputField {
                 'i-input-field-root',
                 `i-input-field-root--${this.color}`,
                 `i-input-field-root-radius--${this.radius}`,
-                this.isFocussed && 'i-input-field-root-focussed'
             ],
             'i-input-field-start-content': [
                 'i-input-field-start-content',
@@ -64,6 +61,11 @@ export class IInputField {
             ],
             'i-input-field-input': ['i-input-field-input'],
         };
+
+        // if focussed, add focus class
+        if (this.isFocussed) {
+            baseClasses['i-input-field-root'] = [...baseClasses['i-input-field-root'], 'i-input-field-root--focussed']
+        }
 
         const classesWithTheme = this.injectThemeClasses(baseClasses);
 
@@ -77,20 +79,14 @@ export class IInputField {
 
     render() {
         const classes = this.constructInputClasses();
-
-
+        const styles = {
+            ...(this.outlineColor && { outlineColor: this.outlineColor }),
+            ...(this.outlineWidth && { outlineWidth: this.outlineWidth })
+        }
         return (
             <div
-                tabindex="0"
                 class={classes['i-input-field-root']}
-                onFocus={() => {
-                    this.isFocussed = true;
-                    this.inputRef.focus();
-                }}
-                onBlur={() => {
-                    this.isFocussed = false;
-                    this.inputRef.blur();
-                }}
+                style={styles}
             >
                 {
                     this.startContent && (
@@ -101,7 +97,9 @@ export class IInputField {
                     )
                 }
                 <input
-                    ref={(el) => this.inputRef = el as HTMLInputElement}
+                    type={this.type}
+                    onFocus={() => this.isFocussed = true}
+                    onBlur={() => this.isFocussed = false}
                     class={classes['i-input-field-input']}
                     placeholder={this.placeholder}
                 />
