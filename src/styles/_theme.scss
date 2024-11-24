@@ -8,17 +8,30 @@
 
   --default: var(--zinc-500);
   /* Mid-tone zinc for default actions */
+  --default-bg: var(--zinc-100);
+  /* Light zinc for default background */
   --primary: var(--blue-500);
   /* Mid-tone blue for primary actions */
+  --primary-bg: var(--blue-100);
+  /* Light blue for primary background */
   --secondary: var(--purple-500);
   /* Mid-tone purple for secondary actions */
+  --secondary-bg: var(--purple-100);
+  /* Light purple for secondary background */
   --success: var(--green-500);
   /* Mid-tone green for success messages */
+  --success-bg: var(--green-100);
+  /* Light green for success background */
   --warning: var(--yellow-500);
   /* Mid-tone yellow for warnings */
+  --warning-bg: var(--yellow-100);
+  /* Light yellow for warning background */
   --danger: var(--red-500);
   /* Mid-tone red for errors */
+  --danger-bg: var(--red-100);
+  /* Light red for danger background */
 
+  --outline: var(--blue-400);
   --overlay: var(--zinc-800);
   /* Darker overlay color */
   --divider: var(--zinc-200);
@@ -41,18 +54,31 @@
   /* Light gray for text */
 
   --default: var(--zinc-400);
-  /* lighter zinc for default actions */
+  /* Lighter zinc for default actions */
+  --default-bg: var(--zinc-800);
+  /* Dark zinc for default background */
   --primary: var(--blue-400);
   /* Slightly lighter blue for contrast */
+  --primary-bg: var(--blue-900);
+  /* Dark blue for primary background */
   --secondary: var(--purple-400);
   /* Lighter purple for contrast */
+  --secondary-bg: var(--purple-900);
+  /* Dark purple for secondary background */
   --success: var(--green-400);
   /* Lighter green */
+  --success-bg: var(--green-900);
+  /* Dark green for success background */
   --warning: var(--yellow-400);
   /* Lighter yellow */
+  --warning-bg: var(--yellow-900);
+  /* Dark yellow for warning background */
   --danger: var(--red-400);
   /* Lighter red */
+  --danger-bg: var(--red-900);
+  /* Dark red for danger background */
 
+  --outline: var(--blue-700);
   --overlay: var(--zinc-700);
   /* Slightly lighter overlay color */
   --divider: var(--zinc-600);
@@ -73,16 +99,24 @@
   @include light-theme;
 }
 
-/* Apply light theme when user preference is set to light */
-@media (prefers-color-scheme: light) {
-  :root {
-    @include light-theme;
-  }
+// /* Apply light theme when user preference is set to light */
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     @include light-theme;
+//   }
+// }
+
+// /* Apply dark theme when user preference is set to dark */
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     @include dark-theme;
+//   }
+// }
+
+[data-theme='light'] {
+  @include light-theme;
 }
 
-/* Apply dark theme when user preference is set to dark */
-@media (prefers-color-scheme: dark) {
-  :root {
-    @include dark-theme;
-  }
+[data-theme='dark'] {
+  @include dark-theme;
 }
