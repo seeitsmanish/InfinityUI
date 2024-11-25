@@ -33,6 +33,16 @@
         &:hover {
             background-color: rgba(var(--default), var(--input-field-root-hover-opacity));
         }
+
+        &--disabled {
+            opacity: 0.5 !important;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: rgb(var(--default-bg));
+                color: rgb(var(--default));
+            }
+        }
     }
 
     &--primary {
@@ -45,6 +55,16 @@
 
         &:hover {
             background-color: rgba(var(--primary), var(--input-field-root-hover-opacity));
+        }
+
+        &--disabled {
+            opacity: 0.5 !important;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: rgb(var(--primary-bg));
+                color: rgb(var(--primary));
+            }
         }
 
     }
@@ -60,6 +80,16 @@
         &:hover {
             background-color: rgba(var(--secondary), var(--input-field-root-hover-opacity));
         }
+
+        &--disabled {
+            opacity: 0.5 !important;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: rgb(var(--secondary-bg));
+                color: rgb(var(--secondary));
+            }
+        }
     }
 
     &--success {
@@ -72,6 +102,16 @@
 
         &:hover {
             background-color: rgba(var(--success), var(--input-field-root-hover-opacity));
+        }
+
+        &--disabled {
+            opacity: 0.5 !important;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: rgb(var(--success-bg));
+                color: rgb(var(--success));
+            }
         }
     }
 
@@ -86,6 +126,17 @@
         &:hover {
             background-color: rgba(var(--warning), var(--input-field-root-hover-opacity));
         }
+
+        &--disabled {
+            opacity: 0.5 !important;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: rgb(var(--warning-bg));
+                color: rgb(var(--warning));
+            }
+        }
+
     }
 
     &--danger {
@@ -99,6 +150,17 @@
         &:hover {
             background-color: rgba(var(--danger), var(--input-field-root-hover-opacity));
         }
+
+        &--disabled {
+            opacity: 0.5 !important;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: rgb(var(--danger-bg));
+                color: rgb(var(--danger));
+            }
+        }
+
     }
 
     &-radius {
@@ -131,6 +193,10 @@
     outline: none;
     color: inherit;
     padding: var(--spacing-sm);
+
+    &--disabled {
+        cursor: not-allowed;
+    }
 }
 
 .i-input-field-start-content,

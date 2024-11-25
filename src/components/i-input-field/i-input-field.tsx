@@ -9,7 +9,7 @@ import { ColorType, sizeType } from "../../models";
 export class IInputField {
 
     @Prop() value: string = '';
-    @Event() valueChange: EventEmitter<string | number>;
+    @Event() valueChange: EventEmitter<Event>;
     @Prop() type: 'text' | 'number' | 'email' | 'password' | 'number' = 'text';
     @Prop() placeholder: string = '';
     @Prop() placeHolderColor?: string;
@@ -28,8 +28,8 @@ export class IInputField {
 
     @State() isFocussed: boolean = false;
 
-    handleValueChange = (e: any) => {
-        this.valueChange.emit(e.target.value);
+    handleValueChange = (e: Event) => {
+        this.valueChange.emit(e);
     }
 
     injectThemeClasses = (classes: Record<string, string[]>): Record<string, string[]> => {
@@ -67,6 +67,13 @@ export class IInputField {
             baseClasses['i-input-field-root'] = [...baseClasses['i-input-field-root'], 'i-input-field-root--focussed']
         }
 
+        // if disabled
+        if (this.disabled) {
+            baseClasses['i-input-field-root'] = [...baseClasses['i-input-field-root'], `i-input-field-root--${this.color}--disabled`]
+            baseClasses['i-input-field-input'] = [...baseClasses['i-input-field-input'], 'i-input-field-input--disabled']
+        }
+
+
         const classesWithTheme = this.injectThemeClasses(baseClasses);
 
         const finalClasses: Record<string, string> = {};
@@ -98,10 +105,15 @@ export class IInputField {
                 }
                 <input
                     type={this.type}
+                    disabled={this.disabled}
                     onFocus={() => this.isFocussed = true}
                     onBlur={() => this.isFocussed = false}
                     class={classes['i-input-field-input']}
                     placeholder={this.placeholder}
+                    onChange={(e) => {
+                        if (this.disabled) return;
+                        this.handleValueChange(e);
+                    }}
                 />
                 {
                     this.endContent && (
