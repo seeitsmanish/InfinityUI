@@ -17,6 +17,10 @@
     transition: var(--animation-duration-short) ease-in-out;
     opacity: 1;
 
+    &--invalid {
+        border: var(--border-thin) rgb(var(--danger));
+    }
+
     &--focussed {
         outline: 2px solid rgb(var(--outline));
         outline-offset: 2px;
@@ -231,4 +235,10 @@
         stroke: rgba(var(--danger), var(--input-field-content-opacity));
     }
 
+}
+
+.i-input-field-error-message {
+    color: rgb(var(--danger));
+    font-size: var(--font-size-xs);
+    margin-left: 1px;
 }

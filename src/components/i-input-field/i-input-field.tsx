@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Prop, State, } from '@stencil/core';
+import { Component, Event, EventEmitter, Fragment, h, Prop, State, } from '@stencil/core';
 import { ColorType, sizeType } from "../../models";
 
 @Component({
@@ -60,6 +60,8 @@ export class IInputField {
                 `i-input-field-start-content--${this.color}`
             ],
             'i-input-field-input': ['i-input-field-input'],
+            'i-input-field-label': ['i-input-field-label'],
+            'i-input-field-error-message': ['i-input-field-error-message']
         };
 
         // if focussed, add focus class
@@ -71,6 +73,10 @@ export class IInputField {
         if (this.disabled) {
             baseClasses['i-input-field-root'] = [...baseClasses['i-input-field-root'], `i-input-field-root--${this.color}--disabled`]
             baseClasses['i-input-field-input'] = [...baseClasses['i-input-field-input'], 'i-input-field-input--disabled']
+        }
+
+        if (!this.valid) {
+            baseClasses['i-input-field-root'] = [...baseClasses['i-input-field-root'], 'i-input-field-root--invalid'];
         }
 
 
@@ -87,43 +93,52 @@ export class IInputField {
     render() {
         const classes = this.constructInputClasses();
         const styles = {
+
             ...(this.outlineColor && { outlineColor: this.outlineColor }),
             ...(this.outlineWidth && { outlineWidth: this.outlineWidth })
         }
         return (
-            <div
-                class={classes['i-input-field-root']}
-                style={styles}
-            >
+            <Fragment>
+
+                <div
+                    class={classes['i-input-field-root']}
+                    style={styles}
+                >
+                    {
+                        this.startContent && (
+                            <div class={classes['i-input-field-start-content']}>
+                                {this.startContent}
+                                <slot name="start-content" />
+                            </div>
+                        )
+                    }
+                    <input
+                        type={this.type}
+                        disabled={this.disabled}
+                        onFocus={() => this.isFocussed = true}
+                        onBlur={() => this.isFocussed = false}
+                        class={classes['i-input-field-input']}
+                        placeholder={this.placeholder}
+                        onChange={(e) => {
+                            if (this.disabled) return;
+                            this.handleValueChange(e);
+                        }}
+                    />
+                    {
+                        this.endContent && (
+                            <div class={classes['i-input-field-end-content']}>
+                                {this.endContent}
+                                <slot name="end-content" />
+                            </div>
+                        )
+                    }
+                </div>
                 {
-                    this.startContent && (
-                        <div class={classes['i-input-field-start-content']}>
-                            {this.startContent}
-                            <slot name="start-content" />
-                        </div>
-                    )
+                    (!this.valid && this.errorMessage) && (<span class={classes['i-input-field-error-message']} >
+                        {this.errorMessage}
+                    </span>)
                 }
-                <input
-                    type={this.type}
-                    disabled={this.disabled}
-                    onFocus={() => this.isFocussed = true}
-                    onBlur={() => this.isFocussed = false}
-                    class={classes['i-input-field-input']}
-                    placeholder={this.placeholder}
-                    onChange={(e) => {
-                        if (this.disabled) return;
-                        this.handleValueChange(e);
-                    }}
-                />
-                {
-                    this.endContent && (
-                        <div class={classes['i-input-field-end-content']}>
-                            {this.endContent}
-                            <slot name="end-content" />
-                        </div>
-                    )
-                }
-            </div>
+            </Fragment>
         )
     }
 
