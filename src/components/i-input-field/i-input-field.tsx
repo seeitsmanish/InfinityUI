@@ -20,7 +20,7 @@ export class IInputField {
     @Prop() errorMessage?: string;
     @Prop() description?: string;
     @Prop() color: ColorType = 'default';
-    @Prop() variant: 'flat' | 'outline' | 'underline' | 'light' = 'flat';
+    @Prop() variant: 'flat' | 'outline' = 'flat';
     @Prop() radius: sizeType = 'lg';
     @Prop() startContent?: string | number | JSX.Element | HTMLElement;
     @Prop() endContent?: string | number | JSX.Element | HTMLElement;
@@ -49,6 +49,7 @@ export class IInputField {
             'i-input-field-root': [
                 'i-input-field-root',
                 `i-input-field-root--${this.color}`,
+                `i-input-field-root--${this.color}--${this.variant}`,
                 `i-input-field-root-radius--${this.radius}`,
             ],
             'i-input-field-start-content': [
@@ -71,7 +72,7 @@ export class IInputField {
 
         // if disabled
         if (this.disabled) {
-            baseClasses['i-input-field-root'] = [...baseClasses['i-input-field-root'], `i-input-field-root--${this.color}--disabled`]
+            baseClasses['i-input-field-root'] = [...baseClasses['i-input-field-root'], `i-input-field-root--disabled`]
             baseClasses['i-input-field-input'] = [...baseClasses['i-input-field-input'], 'i-input-field-input--disabled']
         }
 
