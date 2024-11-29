@@ -7,8 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ColorType, sizeType } from "./models";
 import { DateTypeComponents } from "./components/i-calendar/models";
+import { Event } from "@stencil/core";
 export { ColorType, sizeType } from "./models";
 export { DateTypeComponents } from "./components/i-calendar/models";
+export { Event } from "@stencil/core";
 export namespace Components {
     interface IAccordion {
         "type": 'single' | 'multiple';
@@ -94,7 +96,7 @@ export namespace Components {
         "type": 'text' | 'number' | 'email' | 'password' | 'number';
         "valid"?: boolean;
         "value": string;
-        "variant": 'flat' | 'outline' | 'underline' | 'light';
+        "variant": 'flat' | 'outline';
     }
     interface ISpinner {
         "color": ColorType | string;
@@ -206,7 +208,7 @@ declare global {
         new (): HTMLIChevronElement;
     };
     interface HTMLIInputFieldElementEventMap {
-        "valueChange": string | number;
+        "valueChange": Event;
     }
     interface HTMLIInputFieldElement extends Components.IInputField, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIInputFieldElementEventMap>(type: K, listener: (this: HTMLIInputFieldElement, ev: IInputFieldCustomEvent<HTMLIInputFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -324,7 +326,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "endContent"?: string | number | JSX.Element | HTMLElement;
         "errorMessage"?: string;
-        "onValueChange"?: (event: IInputFieldCustomEvent<string | number>) => void;
+        "onValueChange"?: (event: IInputFieldCustomEvent<Event>) => void;
         "outlineColor"?: string;
         "outlineWidth"?: string;
         "placeHolderColor"?: string;
@@ -335,7 +337,7 @@ declare namespace LocalJSX {
         "type"?: 'text' | 'number' | 'email' | 'password' | 'number';
         "valid"?: boolean;
         "value"?: string;
-        "variant"?: 'flat' | 'outline' | 'underline' | 'light';
+        "variant"?: 'flat' | 'outline';
     }
     interface ISpinner {
         "color"?: ColorType | string;

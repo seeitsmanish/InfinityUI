@@ -203,4 +203,37 @@
     color: rgb(var(--danger));
     font-size: var(--font-size-xs);
     margin-left: 1px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.i-input-field-description {
+    --input-field-content-opacity: 0.7;
+    height: fit-content;
+    width: fit-content;
+    font-size: var(--font-size-xs);
+
+    &--default {
+        color: rgba(var(--default), var(--input-field-content-opacity)) !important;
+    }
+
+    &--primary {
+        color: rgba(var(--primary), var(--input-field-content-opacity)) !important;
+    }
+
+    &--secondary {
+        color: rgba(var(--secondary), var(--input-field-content-opacity)) !important;
+    }
+
+    &--success {
+        color: rgba(var(--success), var(--input-field-content-opacity));
+    }
+
+    &--warning {
+        color: rgba(var(--warning), var(--input-field-content-opacity));
+    }
+
+    &--danger {
+        color: rgba(var(--danger), var(--input-field-content-opacity));
+    }
 }

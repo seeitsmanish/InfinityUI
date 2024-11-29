@@ -62,7 +62,11 @@ export class IInputField {
             ],
             'i-input-field-input': ['i-input-field-input'],
             'i-input-field-label': ['i-input-field-label'],
-            'i-input-field-error-message': ['i-input-field-error-message']
+            'i-input-field-error-message': ['i-input-field-error-message'],
+            'i-input-field-description': [
+                'i-input-field-description',
+                `i-input-field-description--${this.color}`
+            ]
         };
 
         // if focussed, add focus class
@@ -100,7 +104,6 @@ export class IInputField {
         }
         return (
             <Fragment>
-
                 <div
                     class={classes['i-input-field-root']}
                     style={styles}
@@ -135,9 +138,14 @@ export class IInputField {
                     }
                 </div>
                 {
-                    (!this.valid && this.errorMessage) && (<span class={classes['i-input-field-error-message']} >
+                    this.description && (<p class={classes['i-input-field-description']} >
+                        {this.description}
+                    </p>)
+                }
+                {
+                    (!this.valid && this.errorMessage) && (<p class={classes['i-input-field-error-message']} >
                         {this.errorMessage}
-                    </span>)
+                    </p>)
                 }
             </Fragment>
         )
