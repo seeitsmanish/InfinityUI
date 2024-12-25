@@ -99,19 +99,19 @@
   @include light-theme;
 }
 
-// /* Apply light theme when user preference is set to light */
-// @media (prefers-color-scheme: light) {
-//   :root {
-//     @include light-theme;
-//   }
-// }
+/* Apply light theme when user preference is set to light */
+@media (prefers-color-scheme: light) {
+  :root {
+    @include light-theme;
+  }
+}
 
-// /* Apply dark theme when user preference is set to dark */
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     @include dark-theme;
-//   }
-// }
+/* Apply dark theme when user preference is set to dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-theme;
+  }
+}
 
 [data-theme='light'] {
   @include light-theme;

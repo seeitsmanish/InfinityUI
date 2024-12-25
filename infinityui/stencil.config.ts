@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { reactOutputTarget } from '@stencil/react-output-target';
+
 export const config: Config = {
   namespace: 'infinityui',
   globalStyle: 'src/styles/global.scss',
@@ -25,7 +26,7 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
     reactOutputTarget({
-      outDir: '../infinity-ui-next-app/app/components/stencil-generated', // Adjust this path to your Next.js app
+      outDir: '../react-library/src',
     }),
     {
       type: 'dist-custom-elements',

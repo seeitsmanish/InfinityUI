@@ -26,14 +26,17 @@
   }
 
   .heading {
-    color: seashell;
+    color: rgb(var(--content1));
     margin-bottom: 20px;
   }
 
   .item {
     padding: 50px;
-    border: 1px solid #f8f9fa;
+    border: 1px solid rgb(var(--foreground));
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .content {
@@ -49,6 +52,21 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    color: rgb(var(--content1));
+  }
+
+  .theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background: rgb(var(--background));
+    color: rgb(var(--content1));
+    border: 1px solid rgb(var(--content1));
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
   }
 </style>
 
@@ -56,6 +74,13 @@
 
 
   <div class="wrapper">
+
+    <div class="theme-toggle">
+      <label>
+        <input type="checkbox" id="theme-checkbox">
+        Dark Mode
+      </label>
+    </div>
 
     <!-- Buttons -->
     <!-- Color Variants -->
@@ -376,6 +401,150 @@
         <label>Read-Only Mode</label>
       </div>
     </div>
+
+
+    <div class="item">
+      <p class="heading">Input Field Variations</p>
+      <div class="content">
+
+        <!-- Default Text Input -->
+        <div class="item">
+          <p class="heading">Default Text Input</p>
+          <i-input-field placeholder="Enter text" color="default"></i-input-field>
+        </div>
+
+        <!-- Email Input -->
+        <div class="item">
+          <p class="heading">Email Input</p>
+          <i-input-field type="email" placeholder="Enter email" color="primary"></i-input-field>
+        </div>
+
+        <!-- Password Input -->
+        <div class="item">
+          <p class="heading">Password Input</p>
+          <i-input-field type="password" placeholder="Enter password" color="danger"></i-input-field>
+        </div>
+
+        <!-- Number Input -->
+        <div class="item">
+          <p class="heading">Number Input</p>
+          <i-input-field type="number" placeholder="Enter number" color="warning"></i-input-field>
+        </div>
+
+        <!-- Disabled Input -->
+        <div class="item">
+          <p class="heading">Disabled Input</p>
+          <i-input-field placeholder="Disabled" disabled color="default"></i-input-field>
+        </div>
+
+        <!-- Variants -->
+        <div class="item">
+          <p class="heading">Color Variants</p>
+          <div class="sub-content">
+            <i-input-field label="Name" placeholder="Default Variant"></i-input-field>
+            <label>Default</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Primary Variant" color="primary"></i-input-field>
+            <label>Primary</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Secondary Variant" color="secondary"></i-input-field>
+            <label>Secondary</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Success Variant" color="success"></i-input-field>
+            <label>Success</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Warning Variant" color="warning"></i-input-field>
+            <label>Warning</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Danger Variant" color="danger"></i-input-field>
+            <label>Danger</label>
+          </div>
+        </div>
+
+        <!-- Variants -->
+        <div class="item">
+          <p class="heading">Variants</p>
+          <div class="sub-content">
+            <i-input-field label="Name" placeholder="Default Variant" variant="outline"></i-input-field>
+            <label>Default</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Primary Variant" color="primary" variant="outline"></i-input-field>
+            <label>Primary</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Secondary Variant" color="secondary" variant="outline"></i-input-field>
+            <label>Secondary</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Success Variant" color="success" variant="outline"></i-input-field>
+            <label>Success</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Warning Variant" color="warning" variant="outline"></i-input-field>
+            <label>Warning</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Danger Variant" color="danger" variant="outline"></i-input-field>
+            <label>Danger</label>
+          </div>
+        </div>
+
+        <!-- Radius Variations -->
+        <div class="item">
+          <p class="heading">Radius Variations</p>
+          <div class="sub-content">
+            <i-input-field placeholder="Small Radius" radius="sm"></i-input-field>
+            <label>Small</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Medium Radius" radius="md"></i-input-field>
+            <label>Medium</label>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="Large Radius" radius="lg"></i-input-field>
+            <label>Large</label>
+          </div>
+        </div>
+
+        <!-- Custom Start and End Content -->
+        <div class="item">
+          <p class="heading">Start and End Content</p>
+          <div class="sub-content">
+            <i-input-field placeholder="With Start Content" start-content="🔍"></i-input-field>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="With End Content" end-content="✔"></i-input-field>
+          </div>
+          <div class="sub-content">
+            <i-input-field placeholder="With Both" start-content="📧" end-content="✔"></i-input-field>
+          </div>
+        </div>
+
+        <!-- Custom Theme -->
+        <div class="item">
+          <p class="heading">Custom Theme</p>
+          <i-input-field placeholder="Custom Outline" outline-color="purple" outline-width="2px"></i-input-field>
+        </div>
+
+        <!-- Error and Description -->
+        <div class="item">
+          <p class="heading">Error and Description</p>
+          <i-input-field placeholder="Enter your name" error-message="Name cannot be empty"
+            description="Please provide your full name" valid="false"></i-input-field>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
   </div>
 
 
@@ -385,46 +554,27 @@
       calendar.setAttribute('selected', event.detail);
     };
 
+    // Get the checkbox
+    const themeCheckbox = document.getElementById('theme-checkbox');
+
+    // Check for saved user preference and apply it
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeCheckbox.checked = savedTheme === 'dark';
+    }
+
+    // Toggle theme on checkbox change
+    themeCheckbox.addEventListener('change', () => {
+      const theme = themeCheckbox.checked ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    });
+
+
+
   </script>
 
 </body>
 
 </html>
-
-
-<!-- <i-button color="success" size="lg"> Infinity UI is awesome</i-button>
-<i-spinner size="lg" thickness="5" color="secondary"></i-spinner>
-<i-calendar color="danger" onselect="onSelect(event)" max-date="2024-11-13" selected="2024-12-10">
-</i-calendar>
-<i-accordion style="width: 300px;">
-  <i-accordion-item>
-    <i-accordion-trigger>
-      Accordion 1
-    </i-accordion-trigger>
-    <i-accordion-content>
-      Accordion 1 content
-    </i-accordion-content>
-  </i-accordion-item>
-
-  <i-accordion-item>
-    <i-accordion-trigger>
-      Accordion 2
-    </i-accordion-trigger>
-    <i-accordion-content>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam repudiandae cupiditate, ducimus iusto
-      voluptates quas animi ipsa nam dicta iure?
-    </i-accordion-content>
-  </i-accordion-item>
-
-
-  <i-accordion-item>
-    <i-accordion-trigger>
-      Accordion 3
-    </i-accordion-trigger>
-    <i-accordion-content>
-      Accordion 3 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, vel?
-    </i-accordion-content>
-  </i-accordion-item>
-  </i-accordion-item>
-
-</i-accordion> -->
