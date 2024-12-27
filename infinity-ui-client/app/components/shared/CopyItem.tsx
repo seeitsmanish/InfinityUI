@@ -4,14 +4,16 @@ import React, { Fragment, useState } from 'react';
 
 type CopyItemProps = {
     size?: string;
-    className?: string;
+    copyIconClassName?: string;
+    checkIconClassName?: string;
     duration?: number;
     content?: string;
 };
 
 const CopyItem: React.FC<CopyItemProps> = ({
     size = '18',
-    className = '',
+    copyIconClassName = '',
+    checkIconClassName = '',
     duration = 500,
     content = '',
 }) => {
@@ -28,9 +30,9 @@ const CopyItem: React.FC<CopyItemProps> = ({
         <Fragment>
             {
                 copyIconVisible ? (
-                    <Copy size={size} className={className} onClick={handleCopyClick} />
+                    <Copy size={size} className={copyIconClassName} onClick={handleCopyClick} />
                 ) : (
-                    <Check size={size} className={className} />
+                    <Check size={size} className={checkIconClassName} />
                 )
             }
         </Fragment>
