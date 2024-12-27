@@ -1,17 +1,19 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
-import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
   namespace: 'infinityui',
   globalStyle: 'src/styles/global.scss',
   plugins: [
-    sass(),
+    sass()
   ],
   outputTargets: [
     {
       type: 'dist',
       esmLoaderPath: '../loader',
+      copy: [
+        { src: 'styles' } // Copy styles directory to dist
+      ]
     },
     {
       type: 'dist-custom-elements',
@@ -20,20 +22,17 @@ export const config: Config = {
     },
     {
       type: 'docs-readme',
+      footer: '*Built with InfinityUI*'
     },
     {
       type: 'www',
-      serviceWorker: null, // disable service workers
-    },
-    reactOutputTarget({
-      outDir: '../react-library/src',
-    }),
-    {
-      type: 'dist-custom-elements',
-    },
-
+      serviceWorker: null,
+      copy: [
+        { src: 'styles' }
+      ]
+    }
   ],
   testing: {
     browserHeadless: "new",
-  },
+  }
 };

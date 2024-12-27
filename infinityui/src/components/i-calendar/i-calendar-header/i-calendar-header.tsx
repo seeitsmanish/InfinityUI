@@ -8,7 +8,7 @@ import { Component, h, Prop } from "@stencil/core";
 
 export class ICalendarHeader {
 
-    @Prop() calendarHeading?: JSX.Element | HTMLElement | string;
+    @Prop() calendarHeading?: Element | string;
     @Prop() handlePrev?: () => void;
     @Prop() handleNext?: () => void;
     @Prop() readOnly: boolean;

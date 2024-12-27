@@ -22,8 +22,8 @@ export class IInputField {
     @Prop() color: ColorType = 'default';
     @Prop() variant: 'flat' | 'outline' = 'flat';
     @Prop() radius: sizeType = 'lg';
-    @Prop() startContent?: string | number | JSX.Element | HTMLElement;
-    @Prop() endContent?: string | number | JSX.Element | HTMLElement;
+    @Prop() startContent?: string | number | Element;
+    @Prop() endContent?: string | number | Element;
     @Prop() theme?: Record<string, string>;
 
     @State() isFocussed: boolean = false;

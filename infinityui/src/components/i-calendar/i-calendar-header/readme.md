@@ -9,7 +9,7 @@
 
 | Property            | Attribute          | Description | Type                                                                          | Default     |
 | ------------------- | ------------------ | ----------- | ----------------------------------------------------------------------------- | ----------- |
-| `calendarHeading`   | `calendar-heading` |             | `Element \| HTMLElement \| string`                                            | `undefined` |
+| `calendarHeading`   | `calendar-heading` |             | `Element \| string`                                                           | `undefined` |
 | `color`             | `color`            |             | `"danger" \| "default" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'` |
 | `handleNext`        | --                 |             | `() => void`                                                                  | `undefined` |
 | `handlePrev`        | --                 |             | `() => void`                                                                  | `undefined` |
@@ -39,4 +39,4 @@ graph TD;
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+*Built with InfinityUI*

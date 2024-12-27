@@ -52,7 +52,7 @@ export namespace Components {
         "selected"?: string;
     }
     interface ICalendarHeader {
-        "calendarHeading"?: JSX.Element | HTMLElement | string;
+        "calendarHeading"?: Element | string;
         "color": 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
         "handleNext"?: () => void;
         "handlePrev"?: () => void;
@@ -84,14 +84,14 @@ export namespace Components {
         "color": ColorType;
         "description"?: string;
         "disabled": boolean;
-        "endContent"?: string | number | JSX.Element | HTMLElement;
+        "endContent"?: string | number | Element;
         "errorMessage"?: string;
         "outlineColor"?: string;
         "outlineWidth"?: string;
         "placeHolderColor"?: string;
         "placeholder": string;
         "radius": sizeType;
-        "startContent"?: string | number | JSX.Element | HTMLElement;
+        "startContent"?: string | number | Element;
         "theme"?: Record<string, string>;
         "type": 'text' | 'number' | 'email' | 'password' | 'number';
         "valid"?: boolean;
@@ -292,7 +292,7 @@ declare namespace LocalJSX {
         "selected"?: string;
     }
     interface ICalendarHeader {
-        "calendarHeading"?: JSX.Element | HTMLElement | string;
+        "calendarHeading"?: Element | string;
         "color"?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
         "handleNext"?: () => void;
         "handlePrev"?: () => void;
@@ -324,7 +324,7 @@ declare namespace LocalJSX {
         "color"?: ColorType;
         "description"?: string;
         "disabled"?: boolean;
-        "endContent"?: string | number | JSX.Element | HTMLElement;
+        "endContent"?: string | number | Element;
         "errorMessage"?: string;
         "onValueChange"?: (event: IInputFieldCustomEvent<Event>) => void;
         "outlineColor"?: string;
@@ -332,7 +332,7 @@ declare namespace LocalJSX {
         "placeHolderColor"?: string;
         "placeholder"?: string;
         "radius"?: sizeType;
-        "startContent"?: string | number | JSX.Element | HTMLElement;
+        "startContent"?: string | number | Element;
         "theme"?: Record<string, string>;
         "type"?: 'text' | 'number' | 'email' | 'password' | 'number';
         "valid"?: boolean;

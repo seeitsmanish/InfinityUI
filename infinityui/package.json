@@ -1,46 +1,60 @@
 {
-  "name": "infinityui",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "name": "@seeitsmanish/infinityui",
+  "version": "0.0.2",
+  "description": "A framework agnostic web components library built using stenciljs",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/infinityui/infinityui.esm.js",
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/infinityui/infinityui.esm.js",
       "require": "./dist/infinityui/infinityui.cjs.js"
     },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
+    "./components": {
+      "types": "./dist/types/components.d.ts",
+      "import": "./dist/components/index.js"
     },
     "./loader": {
-      "import": "./loader/index.js",
-      "require": "./loader/index.cjs",
-      "types": "./loader/index.d.ts"
+      "types": "./dist/types/loader.d.ts",
+      "import": "./dist/loader/index.js",
+      "require": "./dist/loader/index.cjs"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seeitsmanish/InfinityUI"
+  },
+  "keywords": [
+    "web-components",
+    "stencil",
+    "ui-library",
+    "framework-agnostic"
   ],
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@stencil/core": "^4.22.2",
-    "@stencil/react-output-target": "^0.7.4",
     "@types/jest": "^29.5.6",
     "@types/node": "^16.18.11",
     "jest": "^29.7.0",
@@ -49,7 +63,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@next/font": "^14.2.15",
     "@stencil/sass": "^3.0.12",
     "dayjs": "^1.11.13"
   }

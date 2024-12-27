@@ -12,14 +12,14 @@
 | `color`            | `color`              |             | `"danger" \| "default" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'` |
 | `description`      | `description`        |             | `string`                                                                      | `undefined` |
 | `disabled`         | `disabled`           |             | `boolean`                                                                     | `false`     |
-| `endContent`       | `end-content`        |             | `Element \| HTMLElement \| number \| string`                                  | `undefined` |
+| `endContent`       | `end-content`        |             | `Element \| number \| string`                                                 | `undefined` |
 | `errorMessage`     | `error-message`      |             | `string`                                                                      | `undefined` |
 | `outlineColor`     | `outline-color`      |             | `string`                                                                      | `undefined` |
 | `outlineWidth`     | `outline-width`      |             | `string`                                                                      | `undefined` |
 | `placeHolderColor` | `place-holder-color` |             | `string`                                                                      | `undefined` |
 | `placeholder`      | `placeholder`        |             | `string`                                                                      | `''`        |
 | `radius`           | `radius`             |             | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                        | `'lg'`      |
-| `startContent`     | `start-content`      |             | `Element \| HTMLElement \| number \| string`                                  | `undefined` |
+| `startContent`     | `start-content`      |             | `Element \| number \| string`                                                 | `undefined` |
 | `theme`            | --                   |             | `{ [x: string]: string; }`                                                    | `undefined` |
 | `type`             | `type`               |             | `"email" \| "number" \| "password" \| "text"`                                 | `'text'`    |
 | `valid`            | `valid`              |             | `boolean`                                                                     | `true`      |
@@ -36,4 +36,4 @@
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+*Built with InfinityUI*
