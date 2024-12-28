@@ -8,13 +8,13 @@ type HomePropsType = {}
 
 const Home = ({ }: HomePropsType) => {
     return (
-        <div className="h-[100dvh] w-[100dvw]  bg-zinc-950 text-white overflow-hidden bg-grid-white/[0.2]">
-            <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+        <div className="h-[100dvh] w-[100dvw] overflow-hidden">
+            <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white  [mask-image:radial-gradient(ellipse_at_center,transparent_1%,black)]"></div>
 
             <div className="max-w-[1080px] mx-auto h-full flex flex-col">
 
                 <div className="mt-5 md:mt-10">
-                    <Navbar />
+                    <Navbar source="home" />
                 </div>
 
                 <div className="hidden md:block">
@@ -24,19 +24,19 @@ const Home = ({ }: HomePropsType) => {
 
                     {/* Heading */}
                     <div>
-                        <h3 className="text-lg sm:text-xl md:text-4xl text-gray-400 text-center">Welcome to</h3>
+                        <h3 className="text-lg sm:text-xl md:text-4xl text-slate-900 dark:text-gray-400 text-center">Welcome to</h3>
                         <h1 className="text-3xl sm:text-4xl md:text-9xl font-bold">
                             <span
                                 className="bg-gradient-to-t from-blue-500 to-purple-500 text-transparent bg-clip-text"
                             >
                                 INFINITY
                             </span>
-                            <span> UI</span>
+                            <span className="text-slate-950 dark:text-white"> UI</span>
                         </h1>
                     </div>
 
                     {/* Description */}
-                    <p className="flex flex-col text-base sm:text-sm md:text-2xl text-gray-400 font-bold text-center">
+                    <p className="flex flex-col text-base sm:text-sm md:text-2xl text-slate-900 dark:text-gray-400 font-bold text-center">
                         <span>Framework-agnostic components for building your
                             <span className="md:hidden">next beautiful interface</span>
                         </span>

@@ -1,34 +1,46 @@
-'use client';
+"use client"
 
-import { Moon, Sun } from "lucide-react";
-import { useState } from "react";
-
-type ThemeType = 'dark' | 'light';
-
+import { Moon, Sun, Laptop } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { useTheme } from "@/app/context/ThemeProvider"
+import { cn } from "@/lib/utils"
 type ThemeTogglePropsType = {
-    initial: ThemeType;
+    className?: string;
 }
-const ThemeToggle = ({ initial = 'dark' }: ThemeTogglePropsType) => {
-
-    const [currentTheme, updateCurrentTheme] = useState<ThemeType>(initial);
+export function ThemeToggle({
+    className
+}: ThemeTogglePropsType) {
+    const { theme, setTheme } = useTheme()
 
     return (
-        <button className='rounded-full border-none p-2 bg-transparent cursor-pointer hover:bg-zinc-800 duration-100'
-            onClick={() => {
-                updateCurrentTheme((prev) => {
-                    return prev === 'dark' ? 'light' : 'dark';
-                });
-            }}
-        >
-            {
-                currentTheme === 'dark' ? (
-                    <Sun />
-                ) : (
-                    <Moon />
-                )
-            }
-        </button>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <button className={cn('rounded-full border-none p-2 bg-transparent cursor-pointer duration-100', className)}>
+                    {theme === "light" && <Sun />}
+                    {theme === "dark" && <Moon />}
+                    {theme === "system" && <Laptop />}
+                </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("light")}>
+                    <Sun className="h-4 w-4 mr-2" />
+                    Light
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("dark")}>
+                    <Moon className="h-4 w-4 mr-2" />
+                    Dark
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("system")}>
+                    <Laptop className="h-4 w-4 mr-2" />
+                    System
+                </DropdownMenuItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
     )
 }
-
-export default ThemeToggle;

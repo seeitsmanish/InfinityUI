@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import { ThemeProvider } from "./context/ThemeProvider";
 
 const ubuntu = Ubuntu({
   subsets: ['latin'], // Adjust subsets based on your needs
@@ -23,7 +25,11 @@ export default function RootLayout({
       <body
         className={ubuntu.variable}
       >
-        {children}
+        <ThemeProvider>
+          <main className="h-full min-h-[100dvh] w-[100dvw] dark:bg-zinc-950 bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2]">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
