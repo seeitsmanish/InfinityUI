@@ -8,7 +8,7 @@ type HomePropsType = {}
 
 const Home = ({ }: HomePropsType) => {
     return (
-        <div className="h-[100dvh] w-[100dvw] overflow-hidden">
+        <div className="h-[100dvh] overflow-hidden dark:bg-grid-white/[0.2] bg-grid-black/[0.2]">
             <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white  [mask-image:radial-gradient(ellipse_at_center,transparent_1%,black)]"></div>
 
             <div className="max-w-[1080px] mx-auto h-full flex flex-col">
