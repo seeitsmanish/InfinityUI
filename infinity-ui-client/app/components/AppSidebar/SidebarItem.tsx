@@ -27,7 +27,7 @@ export const SidebarItem = ({
     return (
         <div className="py-4 px-2">
             <p className="font-semibold px-3 py-2 ml-1">{category}</p>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-[1px]">
                 {
                     links?.map((item) => (
                         <Link
