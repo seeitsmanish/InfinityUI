@@ -31,9 +31,17 @@ export const Heading4 = ({ children, className }: TypographyPropsType) => {
 
 export const Paragraph = ({ children, className }: TypographyPropsType) => {
     return (
-        <p className={cn("leading-7 [&:not(:first-child)]:mt-6 dark:text-slate-300 text-slate-800", className)}>
+        <p className={cn("leading-7 mt-2 dark:text-slate-300 text-slate-800", className)}>
             {children}
         </p>
+    )
+}
+
+export const MutedParagraph = ({ children, className }: TypographyPropsType) => {
+    return (
+        <p className={cn("text-sm text-muted-foreground", className)}>
+            {children}
+        </p >
     )
 }
 export const TypographyBlockquote = ({ children, className }: TypographyPropsType) => {
