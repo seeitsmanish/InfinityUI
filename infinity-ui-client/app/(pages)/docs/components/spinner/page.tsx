@@ -1,7 +1,7 @@
 import CodePreview from "@/app/components/CodePreview";
 import Seperator from "@/app/components/Seperator";
 import Tabs, { TabItem } from "@/app/components/Tabs";
-import { Heading1, Heading2, Heading3, Heading4, MutedParagraph, Paragraph, Table, TableCell, TableHeader, TableRow, TypographyBlockquote, InlineCode } from "@/app/components/Typography";
+import { Heading1, Heading2, Heading3, MutedParagraph, Paragraph, Table, TableCell, TableHeader, TableRow, TypographyBlockquote, InlineCode } from "@/app/components/Typography";
 
 const page = () => {
     const colorCode = `
@@ -177,7 +177,7 @@ const page = () => {
     ];
 
     return (
-        <div className="h-full w-full p-5">
+        <div className="w-full p-5">
             <Heading1 className="mb-1">
                 I-Spinner
             </Heading1>
@@ -205,31 +205,31 @@ const page = () => {
                     <TableHeader>Description</TableHeader>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>default</InlineCode></TableCell>
+                    <TableCell>default</TableCell>
                     <TableCell>The default color of the spinner.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>primary</InlineCode></TableCell>
+                    <TableCell>primary</TableCell>
                     <TableCell>For primary use cases like buttons or active elements.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>secondary</InlineCode></TableCell>
+                    <TableCell>secondary</TableCell>
                     <TableCell>Used for secondary actions or inactive elements.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>success</InlineCode></TableCell>
+                    <TableCell>success</TableCell>
                     <TableCell>Indicates a successful action or process.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>warning</InlineCode></TableCell>
+                    <TableCell>warning</TableCell>
                     <TableCell>Indicates a warning or caution.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>danger</InlineCode></TableCell>
+                    <TableCell>danger</TableCell>
                     <TableCell>Indicates an error or dangerous action.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>Custom (#FF5733)</InlineCode></TableCell>
+                    <TableCell>Custom (#FF5733)</TableCell>
                     <TableCell>A custom color represented by a hexadecimal code.</TableCell>
                 </TableRow>
             </Table>
@@ -249,23 +249,23 @@ const page = () => {
                     <TableHeader>Description</TableHeader>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>XS</InlineCode></TableCell>
+                    <TableCell>XS</TableCell>
                     <TableCell>Extra Small spinner.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>SM</InlineCode></TableCell>
+                    <TableCell>SM</TableCell>
                     <TableCell>Small spinner.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>MD</InlineCode></TableCell>
+                    <TableCell>MD</TableCell>
                     <TableCell>Medium spinner (default size).</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>LG</InlineCode></TableCell>
+                    <TableCell>LG</TableCell>
                     <TableCell>Large spinner.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>XL</InlineCode></TableCell>
+                    <TableCell>XL</TableCell>
                     <TableCell>Extra Large spinner.</TableCell>
                 </TableRow>
             </Table>
@@ -285,15 +285,15 @@ const page = () => {
                     <TableHeader>Description</TableHeader>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>2px</InlineCode></TableCell>
+                    <TableCell>2px</TableCell>
                     <TableCell>Thin spinner thickness.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>4px</InlineCode></TableCell>
+                    <TableCell>4px</TableCell>
                     <TableCell>Standard spinner thickness.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>6px</InlineCode></TableCell>
+                    <TableCell>6px</TableCell>
                     <TableCell>Thicker spinner for more emphasis.</TableCell>
                 </TableRow>
             </Table>
@@ -313,15 +313,15 @@ const page = () => {
                     <TableHeader>Description</TableHeader>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>1s</InlineCode></TableCell>
+                    <TableCell>1s</TableCell>
                     <TableCell>Standard speed for spinner animation.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>0.3s</InlineCode></TableCell>
+                    <TableCell>0.3s</TableCell>
                     <TableCell>Faster spinner speed.</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><InlineCode>2s</InlineCode></TableCell>
+                    <TableCell>2s</TableCell>
                     <TableCell>Slower spinner speed for emphasis.</TableCell>
                 </TableRow>
             </Table>
