@@ -19,9 +19,9 @@ const ThemeContext = createContext<{
 
 const getThemeFromLocalStorage = () => {
     if (typeof window !== "undefined") {
-        return localStorage?.getItem('systemTheme') as Theme || 'system';
+        return localStorage?.getItem('systemTheme') as Theme || 'dark';
     }
-    return 'system';
+    return 'dark';
 }
 
 export function ThemeProvider({
