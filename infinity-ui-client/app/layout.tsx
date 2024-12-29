@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./context/ThemeProvider";
 
 const ubuntu = Ubuntu({
@@ -26,11 +25,13 @@ export default function RootLayout({
         className={ubuntu.variable}
       >
         <ThemeProvider>
-          <main className="h-full min-h-[100dvh] w-[100dvw] dark:bg-zinc-950 bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2]">
-            {children}
+          <main className="dark:bg-zinc-950 bg-white">
+            <div className="h-[100dvh] w-full max-w-screen-2xl mx-auto">
+              {children}
+            </div>
           </main>
         </ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 }
