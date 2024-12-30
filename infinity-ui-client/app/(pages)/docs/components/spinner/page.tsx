@@ -127,6 +127,7 @@ const page = () => {
             index: 2,
             title: 'Code',
             content: <CodePreview code={colorCode} language="html" />,
+            code: colorCode,
             className: 'h-full w-full'
         },
     ];
@@ -142,6 +143,7 @@ const page = () => {
             index: 2,
             title: 'Code',
             content: <CodePreview code={sizeCode} language="html" />,
+            code: sizeCode,
             className: 'h-full w-full'
         }
     ];
@@ -157,6 +159,7 @@ const page = () => {
             index: 2,
             title: 'Code',
             content: <CodePreview code={thicknessCode} language="html" />,
+            code: thicknessCode,
             className: 'h-full w-full'
         }
     ];
@@ -172,6 +175,7 @@ const page = () => {
             index: 2,
             title: 'Code',
             content: <CodePreview code={speedCode} language="html" />,
+            code: speedCode,
             className: 'h-full w-full'
         }
     ];

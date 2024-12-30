@@ -1,12 +1,14 @@
 'use client';
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import CopyItem from "../shared/CopyItem";
 
 export type TabItem = {
     index: number,
     title: string | React.ReactNode;
     content: string | React.ReactNode;
     className?: string;
+    code?: string;
 }
 
 type TabsPropsType = {
@@ -24,24 +26,29 @@ const Tabs = ({ tabs = [], onChange }: TabsPropsType) => {
 
     return (
         <div className="mt-5">
-            <div>
-                {tabs.map((tab) => (
-                    <button
-                        key={tab.index}
-                        className={cn('dark:text-slate-400 text-slate-600 font-medium py-1 px-4',
-                            activeTab?.index === tab.index && 'border-b-2 border-black text-black dark:border-white dark:text-white'
-                        )}
-                        onClick={() => {
-                            setActiveTab(tab);
-                            onChange?.(tab.index)
-                        }}
-                    >
-                        {tab.title}
-                    </button>
-                ))}
+            <div className="flex justify-between items-center mr-2">
+                <div>
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab.index}
+                            className={cn('dark:text-slate-400 text-slate-600 font-medium py-1 px-4',
+                                activeTab?.index === tab.index && 'border-b-2 border-black text-black dark:border-white dark:text-white'
+                            )}
+                            onClick={() => {
+                                setActiveTab(tab);
+                                onChange?.(tab.index)
+                            }}
+                        >
+                            {tab.title}
+                        </button>
+                    ))}
+                </div>
+                <div>
+                    {activeTab?.code ? <CopyItem content={activeTab?.code} className="cursor-pointer" /> : null}
+                </div>
             </div>
 
-            <div className='mt-5 w-full min-h-[200px] max-h-[400px] overflow-auto flex justify-center items-center border border-slate-400 rounded-lg dark:border-slate-700'>
+            <div className='mt-5 w-full h-[400px] overflow-auto flex justify-center items-center border border-slate-400 rounded-lg dark:border-slate-700'>
                 <div className={`${activeTab?.className}`}>
                     {activeTab?.content}
                 </div>

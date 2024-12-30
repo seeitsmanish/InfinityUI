@@ -1,9 +1,10 @@
 'use client';
 import { Check, Copy } from 'lucide-react';
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 type CopyItemProps = {
     size?: string;
+    className?: string;
     copyIconClassName?: string;
     checkIconClassName?: string;
     duration?: number;
@@ -12,6 +13,7 @@ type CopyItemProps = {
 
 const CopyItem: React.FC<CopyItemProps> = ({
     size = '18',
+    className,
     copyIconClassName = '',
     checkIconClassName = '',
     duration = 500,
@@ -27,7 +29,7 @@ const CopyItem: React.FC<CopyItemProps> = ({
     }
 
     return (
-        <Fragment>
+        <span className={className}>
             {
                 copyIconVisible ? (
                     <Copy size={size} className={copyIconClassName} onClick={handleCopyClick} />
@@ -35,7 +37,7 @@ const CopyItem: React.FC<CopyItemProps> = ({
                     <Check size={size} className={checkIconClassName} />
                 )
             }
-        </Fragment>
+        </span>
     )
 }
 export default CopyItem;
