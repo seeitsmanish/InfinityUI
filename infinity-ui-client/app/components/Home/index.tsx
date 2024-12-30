@@ -9,7 +9,7 @@ type HomePropsType = {}
 const Home = ({ }: HomePropsType) => {
     return (
         <div className="h-[100dvh] overflow-hidden dark:bg-grid-white/[0.2] bg-grid-black/[0.2]">
-            <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white  [mask-image:radial-gradient(ellipse_at_center,transparent_1%,black)]"></div>
+            <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white  [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)] md:[mask-image:radial-gradient(ellipse_at_center,transparent_1%,black)]"></div>
 
             <div className="max-w-[1080px] mx-auto h-full flex flex-col">
 
@@ -25,7 +25,7 @@ const Home = ({ }: HomePropsType) => {
                     {/* Heading */}
                     <div>
                         <h3 className="text-lg sm:text-xl md:text-4xl text-slate-900 dark:text-gray-400 text-center">Welcome to</h3>
-                        <h1 className="text-3xl sm:text-4xl md:text-9xl font-bold">
+                        <h1 className="text-5xl sm:text-6xl md:text-9xl font-bold">
                             <span
                                 className="bg-gradient-to-t from-blue-500 to-purple-500 text-transparent bg-clip-text"
                             >
