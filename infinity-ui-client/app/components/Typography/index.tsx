@@ -70,7 +70,9 @@ export const Table = ({ children, wrapperClassName, className }: TablePropsType)
     return (
         <div className={cn('my-6 w-full overflow-y-auto', wrapperClassName)}>
             <table className={cn('w-full dark:text-slate-300 text-slate-800', className)}>
-                {children}
+                <tbody>
+                    {children}
+                </tbody>
             </table>
         </div>
     )
