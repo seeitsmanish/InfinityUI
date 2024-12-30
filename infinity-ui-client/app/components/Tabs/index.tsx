@@ -14,9 +14,16 @@ export type TabItem = {
 type TabsPropsType = {
     tabs: TabItem[],
     onChange?: (index: number) => void,
+    wrapperClassName?: string;
+    tabsWrapperClassName?: string;
+    tabContentClassName?: string;
 }
 
-const Tabs = ({ tabs = [], onChange }: TabsPropsType) => {
+const Tabs = ({ tabs = [], onChange,
+    wrapperClassName,
+    tabsWrapperClassName,
+    tabContentClassName,
+}: TabsPropsType) => {
 
     const [activeTab, setActiveTab] = useState<TabItem | undefined>(() => {
         return tabs.length > 0 ? tabs[0] : undefined
@@ -25,8 +32,8 @@ const Tabs = ({ tabs = [], onChange }: TabsPropsType) => {
     if (!tabs.length) return null;
 
     return (
-        <div className="mt-5">
-            <div className="flex justify-between items-center mr-2">
+        <div className={cn("mt-5", wrapperClassName)}>
+            <div className={cn("flex justify-between items-center mr-2", tabsWrapperClassName)}>
                 <div>
                     {tabs.map((tab) => (
                         <button
@@ -48,7 +55,7 @@ const Tabs = ({ tabs = [], onChange }: TabsPropsType) => {
                 </div>
             </div>
 
-            <div className='mt-5 w-full h-[400px] overflow-auto flex justify-center items-center border border-slate-400 rounded-lg dark:border-slate-700'>
+            <div className={cn("mt-5 w-full h-[400px] overflow-auto flex justify-center items-center border border-slate-400 rounded-lg dark:border-slate-700", tabContentClassName)}>
                 <div className={`${activeTab?.className}`}>
                     {activeTab?.content}
                 </div>
