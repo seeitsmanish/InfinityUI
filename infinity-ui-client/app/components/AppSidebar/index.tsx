@@ -32,7 +32,6 @@ const MobileItems: SidebarItemType[] = [
         category: "",
         links: [
             { url: "/", title: "Home" },
-            { url: "/docs", title: "Documentation" },
             { url: "/about", title: "About" },
             { url: 'https://github.com/seeitsmanish/InfinityUI', title: "Github", target: "_blank" },
         ]
