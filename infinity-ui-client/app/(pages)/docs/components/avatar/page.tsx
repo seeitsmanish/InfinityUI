@@ -96,7 +96,7 @@ const AvatarDocs: FC = () => {
             {/* Heading */}
             <Heading1 className='mb-1'>i-avatar</Heading1>
             <MutedParagraph className='mb-10'>
-                The <InlineCode>i-avatar</InlineCode> component is used to display user avatars. It comes with a variety of customizable options like size, shape, lazy loading, ring effects, and more.
+                The i-avatar component is used to display user avatars.
             </MutedParagraph>
 
             {/* Overview */}
