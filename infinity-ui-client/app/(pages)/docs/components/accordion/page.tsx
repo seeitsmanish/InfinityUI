@@ -4,7 +4,7 @@ import Tabs, { TabItem } from "@/app/components/Tabs";
 import { Heading1, Heading2, Heading3, MutedParagraph, Paragraph, Table, TableCell, TableHeader, TableRow, InlineCode } from "@/app/components/Typography";
 
 const page = () => {
-    const singleAccordionCode = `
+  const singleAccordionCode = `
 <div class="item">
   <p class="heading">Accordion Type: Single</p>
   <div class="content">
@@ -26,7 +26,7 @@ const page = () => {
 </div>
 `;
 
-    const multipleAccordionCode = `
+  const multipleAccordionCode = `
 <div class="item">
   <p class="heading">Accordion Type: Multiple</p>
   <div class="content">
@@ -48,64 +48,66 @@ const page = () => {
 </div>
 `;
 
-    const tabs: Record<string, TabItem[]> = {
-        single: [
-            { index: 1, title: "Preview", content: "Preview", className: "" },
-            { index: 2, title: "Code", content: <CodePreview code={singleAccordionCode} language="html" />, code: singleAccordionCode, className: "h-full w-full" },
-        ],
-        multiple: [
-            { index: 1, title: "Preview", content: "Preview", className: "" },
-            { index: 2, title: "Code", content: <CodePreview code={multipleAccordionCode} language="html" />, code: multipleAccordionCode, className: "h-full w-full" },
-        ],
-    };
+  const tabs: Record<string, TabItem[]> = {
+    single: [
+      { index: 1, title: "Preview", content: "Preview", className: "" },
+      { index: 2, title: "Code", content: <CodePreview code={singleAccordionCode} language="html" />, code: singleAccordionCode, className: "h-full w-full" },
+    ],
+    multiple: [
+      { index: 1, title: "Preview", content: "Preview", className: "" },
+      { index: 2, title: "Code", content: <CodePreview code={multipleAccordionCode} language="html" />, code: multipleAccordionCode, className: "h-full w-full" },
+    ],
+  };
 
-    return (
-        <div className="w-full p-5">
-            <Heading1 className="mb-1">I-Accordion</Heading1>
-            <MutedParagraph className="mb-10">
-                Displays an accordion component to toggle the visibility of content panels.
-            </MutedParagraph>
+  return (
+    <div className="w-full p-5">
+      <Heading1 className="mb-1">I-Accordion</Heading1>
+      <MutedParagraph className="mb-10">
+        Displays an accordion component to toggle the visibility of content panels.
+      </MutedParagraph>
 
-            <Heading2>Overview</Heading2>
-            <Paragraph className="mb-5">
-                The <InlineCode>i-accordion</InlineCode> component supports multiple configurations such as <InlineCode>single</InlineCode> and <InlineCode>multiple</InlineCode> modes, allowing flexible content management.
-            </Paragraph>
+      <Heading2>Overview</Heading2>
+      <Paragraph className="mb-5">
+        The <InlineCode>i-accordion</InlineCode> component supports multiple configurations such as <InlineCode>single</InlineCode> and <InlineCode>multiple</InlineCode> modes, allowing flexible content management.
+      </Paragraph>
 
-            <Heading3>Accordion Type: Single</Heading3>
-            <Paragraph>
-                Use the <InlineCode>type="single"</InlineCode> attribute to allow only one panel to remain open at a time.
-            </Paragraph>
-            <Tabs tabs={tabs.single} />
+      <Seperator />
 
-            <Seperator />
+      <Heading3>Accordion Type: Single</Heading3>
+      <Paragraph>
+        Use the <InlineCode>type="single"</InlineCode> attribute to allow only one panel to remain open at a time.
+      </Paragraph>
+      <Tabs tabs={tabs.single} />
 
-            <Heading3>Accordion Type: Multiple</Heading3>
-            <Paragraph>
-                Use the <InlineCode>type="multiple"</InlineCode> attribute to allow multiple panels to remain open simultaneously.
-            </Paragraph>
-            <Tabs tabs={tabs.multiple} />
+      <Seperator />
 
-            <Seperator />
+      <Heading3>Accordion Type: Multiple</Heading3>
+      <Paragraph>
+        Use the <InlineCode>type="multiple"</InlineCode> attribute to allow multiple panels to remain open simultaneously.
+      </Paragraph>
+      <Tabs tabs={tabs.multiple} />
 
-            <Heading3>Properties</Heading3>
-            <Table>
-                <TableRow>
-                    <TableHeader>Property</TableHeader>
-                    <TableHeader>Attribute</TableHeader>
-                    <TableHeader>Description</TableHeader>
-                    <TableHeader>Type</TableHeader>
-                    <TableHeader>Default</TableHeader>
-                </TableRow>
-                <TableRow>
-                    <TableCell>type</TableCell>
-                    <TableCell>type</TableCell>
-                    <TableCell>Determines the accordion mode.</TableCell>
-                    <TableCell><InlineCode>"single" | "multiple"</InlineCode></TableCell>
-                    <TableCell><InlineCode>'single'</InlineCode></TableCell>
-                </TableRow>
-            </Table>
-        </div>
-    );
+      <Seperator />
+
+      <Heading3>Properties</Heading3>
+      <Table>
+        <TableRow>
+          <TableHeader>Property</TableHeader>
+          <TableHeader>Attribute</TableHeader>
+          <TableHeader>Description</TableHeader>
+          <TableHeader>Type</TableHeader>
+          <TableHeader>Default</TableHeader>
+        </TableRow>
+        <TableRow>
+          <TableCell>type</TableCell>
+          <TableCell>type</TableCell>
+          <TableCell>Determines the accordion mode.</TableCell>
+          <TableCell><InlineCode>"single" | "multiple"</InlineCode></TableCell>
+          <TableCell><InlineCode>'single'</InlineCode></TableCell>
+        </TableRow>
+      </Table>
+    </div>
+  );
 };
 
 export default page;

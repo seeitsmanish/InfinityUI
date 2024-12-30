@@ -18,7 +18,7 @@ export const Heading2 = ({ children, className }: TypographyPropsType) => {
 }
 
 export const Heading3 = ({ children, className }: TypographyPropsType) => {
-    return <h3 className={cn("scroll-m-20 text-xl font-medium tracking-tight dark:text-slate-300 text-slate-800", className)}>
+    return <h3 className={cn("scroll-m-20 text-xl font-medium tracking-tight border-b pb-2 border-slate-400 dark:border-slate-700 dark:text-slate-300 text-slate-800", className)}>
         {children}
     </h3>
 }
@@ -68,7 +68,7 @@ export type TablePropsType = {
 
 export const Table = ({ children, wrapperClassName, className }: TablePropsType) => {
     return (
-        <div className={cn('my-6 w-full overflow-y-auto', wrapperClassName)}>
+        <div className={cn('my-6 w-full overflow-y-auto pb-2', wrapperClassName)}>
             <table className={cn('w-full dark:text-slate-300 text-slate-800', className)}>
                 <tbody>
                     {children}

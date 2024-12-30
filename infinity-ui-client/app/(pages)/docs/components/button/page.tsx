@@ -107,6 +107,8 @@ const page = () => {
         The <InlineCode>i-button</InlineCode> component provides multiple variants, sizes, and customization options to fit various use cases in your application.
       </Paragraph>
 
+      <Seperator />
+
       <Heading3>Variants</Heading3>
       <Paragraph>
         Customize the appearance of the button using predefined variants such as <InlineCode>default</InlineCode>, <InlineCode>primary</InlineCode>, <InlineCode>secondary</InlineCode>, etc.

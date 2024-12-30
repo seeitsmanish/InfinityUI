@@ -196,6 +196,8 @@ const page = () => {
                 The <InlineCode>i-spinner</InlineCode> component is a loading indicator that can be customized in terms of color, size, thickness, and speed. It is useful for signaling ongoing processes in your application and enhancing user experience.
             </Paragraph>
 
+            <Seperator />
+
             <Heading3>
                 Color Variants
             </Heading3>
