@@ -94,7 +94,7 @@ const AvatarDocs: FC = () => {
         <div className='w-full p-5'>
 
             {/* Heading */}
-            <Heading1 className='mb-1'>i-avatar</Heading1>
+            <Heading1 className='mb-1'>I-Avatar</Heading1>
             <MutedParagraph className='mb-10'>
                 The i-avatar component is used to display user avatars.
             </MutedParagraph>

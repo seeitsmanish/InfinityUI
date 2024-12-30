@@ -97,7 +97,7 @@ const InputFieldDocs: FC = () => {
 
     return (
         <div className='w-full p-5'>
-            <Heading1 className='mb-1'>I Input Field</Heading1>
+            <Heading1 className='mb-1'>I-Input-Field</Heading1>
             <MutedParagraph className='mb-10'>
                 The i-input-field component provides a customizable input field with various types, styles, and validation states.
             </MutedParagraph>
