@@ -94,7 +94,7 @@ const AvatarDocs: FC = () => {
         <div className='w-full p-5'>
 
             {/* Heading */}
-            <Heading1 className='mb-1'>i-avatar Component</Heading1>
+            <Heading1 className='mb-1'>i-avatar</Heading1>
             <MutedParagraph className='mb-10'>
                 The <InlineCode>i-avatar</InlineCode> component is used to display user avatars. It comes with a variety of customizable options like size, shape, lazy loading, ring effects, and more.
             </MutedParagraph>
@@ -305,7 +305,7 @@ const AvatarDocs: FC = () => {
             <Seperator />
 
             {/* Summary */}
-            <Heading2>Summary of Avatar Props</Heading2>
+            <Heading2>Props Reference</Heading2>
             <Table>
                 <TableRow>
                     <TableHeader>Property</TableHeader>
