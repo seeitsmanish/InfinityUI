@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
+import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
   namespace: 'infinityui',
@@ -30,7 +31,16 @@ export const config: Config = {
       copy: [
         { src: 'styles' }
       ]
-    }
+    },
+    reactOutputTarget({
+      // Relative path to where the React components will be generated
+      outDir: '../infinityui-react/src/components/stencil-generated/',
+    }),
+    // dist-custom-elements output target is required for the React output target
+    {
+      type: 'dist-custom-elements',
+      generateTypeDeclarations: true,
+    },
   ],
   testing: {
     browserHeadless: "new",

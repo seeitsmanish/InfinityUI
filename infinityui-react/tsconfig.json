@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@seeitsmanish/infinityui/*": ["./node_modules/@seeitsmanish/infinityui/*"]
+    },
+    "declaration": true,
+    "declarationDir": "./dist/types"
+  },
+
+  "include": ["src"],
+}

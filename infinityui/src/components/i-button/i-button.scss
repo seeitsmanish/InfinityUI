@@ -21,8 +21,11 @@
   }
 
 
-  focus &:active {
+  &:focus,
+  &:active {
     transform: scale(0.95);
+    outline: 2px solid rgb(var(--outline));
+    outline-offset: 2px;
   }
 
   &.xs {
